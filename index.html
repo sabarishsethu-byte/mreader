@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>M Reader% | India's Trusted Market Consultancy</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --brown:#1A0E02;--brown2:#2C1A06;--gold:#C9912A;--gold-light:#E5B84A;--cream:#FFFDF7;
+  --cream2:#F7F2E8;--cream-border:#E2CFA0;--text-dark:#0D1B2A;--text-mid:#4A3728;
+  --text-light:#8A7A6A;--green:#1B8A58;--red:#B91C1C
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:var(--text-dark);background:var(--cream);overflow-x:hidden}
+
+/* PAGE SYSTEM */
+.page{display:none;animation:pgIn 0.4s cubic-bezier(0.22,1,0.36,1)}
+.page.active{display:block}
+@keyframes pgIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+/* ═══ NAV ═══ */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;background:rgba(255,253,247,0.96);border-bottom:1px solid var(--cream-border);backdrop-filter:blur(12px)}
+.nav-logo{cursor:pointer;display:flex;align-items:center}
+.nav-links{display:flex;gap:2.2rem;list-style:none}
+.nav-links a{font-size:13px;font-weight:500;color:var(--text-mid);cursor:pointer;transition:color 0.2s;letter-spacing:0.2px;text-decoration:none}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{background:var(--brown);color:var(--gold);padding:9px 22px;border-radius:3px;font-size:13px;font-weight:600;cursor:pointer;border:1px solid var(--gold);letter-spacing:0.3px;transition:background 0.2s}
+.nav-cta:hover{background:var(--brown2)}
+@media(max-width:768px){.nav-links{display:none}}
+
+/* TICKER */
+.ticker-wrap{margin-top:68px;background:var(--brown);overflow:hidden;padding:7px 0;font-size:11px;white-space:nowrap}
+.ticker-inner{display:inline-block;animation:tick 35s linear infinite}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ti{display:inline-block;margin-right:2.5rem;color:rgba(255,253,247,0.55);letter-spacing:0.4px}
+.up{color:#69F0AE;font-weight:600}.dn{color:#FF5252;font-weight:600}
+
+/* ═══════════════════════════════════════
+   HOME PAGE
+═══════════════════════════════════════ */
+
+/* HERO */
+.hero{min-height:calc(100vh - 88px);background:var(--brown);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 5% 70px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 80%,rgba(201,145,42,0.07) 0%,transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(201,145,42,0.05) 0%,transparent 55%)}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;background:rgba(201,145,42,0.1);border:1px solid rgba(201,145,42,0.22);border-radius:2px;padding:6px 16px;margin-bottom:2rem}
+.hero-eyebrow span{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold)}
+.hero-dot{width:5px;height:5px;background:var(--gold);border-radius:50%;animation:pulse 1.6s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(0.7)}}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,6vw,5rem);font-weight:700;color:var(--cream);line-height:1.08;margin-bottom:1.5rem;max-width:820px}
+.hero h1 em{color:var(--gold);font-style:italic}
+.hero-sub{font-size:1.05rem;color:rgba(255,253,247,0.5);max-width:520px;line-height:1.9;margin-bottom:2.5rem}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-bottom:4rem}
+.btn-gold{background:var(--gold);color:var(--brown);padding:13px 30px;border-radius:3px;font-size:13px;font-weight:700;cursor:pointer;border:none;letter-spacing:0.5px;transition:filter 0.2s}
+.btn-gold:hover{filter:brightness(1.08)}
+.btn-ghost{background:transparent;color:var(--cream);padding:13px 30px;border-radius:3px;font-size:13px;font-weight:500;cursor:pointer;border:1px solid rgba(201,145,42,0.35);transition:border-color 0.2s}
+.btn-ghost:hover{border-color:var(--gold)}
+.hero-stats-row{display:flex;gap:0;border:1px solid rgba(201,145,42,0.18);border-radius:8px;overflow:hidden;flex-wrap:wrap}
+.hstat{padding:1.2rem 2.5rem;border-right:1px solid rgba(201,145,42,0.18);text-align:center}
+.hstat:last-child{border-right:none}
+.hstat-n{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:700;color:var(--gold);line-height:1}
+.hstat-l{font-size:10px;color:rgba(255,253,247,0.35);letter-spacing:1.8px;text-transform:uppercase;margin-top:5px}
+@media(max-width:600px){.hstat{padding:1rem 1.5rem}.hstat-n{font-size:1.8rem}}
+
+/* ── SERVICES SECTION ── */
+.home-services{padding:90px 5%;background:var(--cream)}
+.sec-label{font-size:10px;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:700;color:var(--brown);line-height:1.15;margin-bottom:0.8rem}
+.sec-rule{width:44px;height:2px;background:var(--gold);margin:1.2rem 0;opacity:0.7}
+.sec-sub{font-size:0.95rem;color:var(--text-light);line-height:1.85;max-width:580px}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.5rem;margin-top:3rem}
+.svc-card{background:#fff;border:1px solid var(--cream-border);border-radius:10px;padding:2rem;cursor:pointer;transition:all 0.28s;position:relative;overflow:hidden}
+.svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform 0.3s}
+.svc-card:hover{box-shadow:0 12px 40px rgba(26,14,2,0.09);transform:translateY(-4px)}
+.svc-card:hover::before{transform:scaleX(1)}
+.svc-icon{width:48px;height:48px;background:rgba(201,145,42,0.1);border:1px solid rgba(201,145,42,0.2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:1.25rem}
+.svc-card h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--brown);margin-bottom:0.6rem}
+.svc-card > p{font-size:13px;color:var(--text-light);line-height:1.75;margin-bottom:1.25rem}
+.svc-benefits{list-style:none;margin-bottom:1.5rem}
+.svc-benefits li{font-size:12px;color:var(--text-mid);padding:5px 0;display:flex;gap:8px;align-items:flex-start;border-bottom:1px solid var(--cream-border)}
+.svc-benefits li:last-child{border-bottom:none}
+.svc-benefits li::before{content:'✓';color:var(--gold);font-weight:700;flex-shrink:0;margin-top:1px}
+.svc-cta{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:var(--gold);letter-spacing:0.8px;text-transform:uppercase;transition:gap 0.2s}
+.svc-card:hover .svc-cta{gap:10px}
+
+/* ── WHY US SECTION ── */
+.why-us{padding:90px 5%;background:var(--brown);position:relative;overflow:hidden}
+.why-us::before{content:'';position:absolute;right:-100px;top:-100px;width:500px;height:500px;border-radius:50%;border:1px solid rgba(201,145,42,0.06)}
+.why-us::after{content:'';position:absolute;right:-50px;top:-50px;width:350px;height:350px;border-radius:50%;border:1px solid rgba(201,145,42,0.08)}
+.why-us .sec-title{color:var(--cream)}
+.why-us .sec-sub{color:rgba(255,253,247,0.45)}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem;margin-top:3rem}
+.why-card{background:rgba(255,253,247,0.04);border:1px solid rgba(201,145,42,0.16);border-radius:10px;padding:1.75rem;transition:border-color 0.2s}
+.why-card:hover{border-color:var(--gold)}
+.why-num{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:700;color:rgba(201,145,42,0.18);line-height:1;margin-bottom:0.75rem}
+.why-card h4{font-size:15px;font-weight:600;color:var(--cream);margin-bottom:0.5rem}
+.why-card p{font-size:13px;color:rgba(255,253,247,0.4);line-height:1.75}
+
+/* ── COMPANY HISTORY ── */
+.history{padding:90px 5%;background:var(--cream2)}
+.timeline{margin-top:3rem;position:relative;padding-left:2rem}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--gold),rgba(201,145,42,0.1))}
+.tl-item{position:relative;padding:0 0 2.5rem 2.5rem}
+.tl-dot{position:absolute;left:-2.4rem;top:4px;width:14px;height:14px;border-radius:50%;background:var(--gold);border:3px solid var(--cream2);box-shadow:0 0 0 2px var(--gold)}
+.tl-year{font-size:10px;font-weight:700;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:0.4rem}
+.tl-item h4{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:var(--brown);margin-bottom:0.4rem}
+.tl-item p{font-size:13px;color:var(--text-light);line-height:1.8;max-width:560px}
+
+/* ── PERFORMANCE SECTION ── */
+.performance{padding:90px 5%;background:var(--brown)}
+.performance .sec-title{color:var(--cream)}
+.performance .sec-sub{color:rgba(255,253,247,0.45)}
+.perf-tabs{display:flex;gap:0;border:1px solid rgba(201,145,42,0.25);border-radius:6px;overflow:hidden;width:fit-content;margin:2rem 0;flex-wrap:wrap}
+.ptab{padding:9px 20px;font-size:12px;font-weight:600;letter-spacing:0.8px;cursor:pointer;background:transparent;border:none;color:rgba(255,253,247,0.4);border-right:1px solid rgba(201,145,42,0.25);transition:all 0.2s;text-transform:uppercase}
+.ptab:last-child{border-right:none}
+.ptab.active{background:rgba(201,145,42,0.15);color:var(--gold)}
+.perf-content{display:none}.perf-content.active{display:block}
+.perf-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;margin-bottom:2rem}
+.pkpi{background:rgba(255,253,247,0.04);border:1px solid rgba(201,145,42,0.14);border-radius:8px;padding:1.2rem;text-align:center}
+.pkpi-val{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--gold)}
+.pkpi-val.g{color:#69F0AE}
+.pkpi-lbl{font-size:10px;color:rgba(255,253,247,0.3);letter-spacing:1.2px;text-transform:uppercase;margin-top:4px}
+.perf-chart-row{display:flex;gap:1rem;flex-wrap:wrap}
+.perf-bar-wrap{flex:1;min-width:260px}
+.perf-bar-label{display:flex;justify-content:space-between;font-size:11px;color:rgba(255,253,247,0.4);margin-bottom:5px;letter-spacing:0.3px}
+.perf-bar-track{height:6px;background:rgba(255,253,247,0.06);border-radius:3px;overflow:hidden}
+.perf-bar-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light))}
+.perf-disclaimer{margin-top:1.5rem;font-size:11px;color:rgba(255,253,247,0.2);line-height:1.6;padding-top:1.2rem;border-top:1px solid rgba(201,145,42,0.1)}
+
+/* ── TESTIMONIALS ── */
+.testimonials{padding:90px 5%;background:var(--cream2)}
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:3rem}
+.tcard{background:#fff;border:1px solid var(--cream-border);border-radius:10px;padding:1.75rem;position:relative}
+.tcard::before{content:'❝';position:absolute;top:1rem;right:1.5rem;font-size:2.5rem;color:rgba(201,145,42,0.12);font-family:'Cormorant Garamond',serif;line-height:1}
+.tcard-text{font-size:14px;color:var(--text-mid);line-height:1.85;margin-bottom:1.25rem;font-style:italic}
+.tcard-author{display:flex;align-items:center;gap:10px}
+.tcard-avatar{width:36px;height:36px;border-radius:50%;background:var(--brown);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--gold);flex-shrink:0;font-family:'Cormorant Garamond',serif}
+.tcard-name{font-size:13px;font-weight:600;color:var(--brown)}
+.tcard-role{font-size:11px;color:var(--text-light)}
+
+/* ── CTA STRIP ── */
+.home-cta{padding:80px 5%;background:var(--brown);text-align:center;position:relative;overflow:hidden}
+.home-cta::before{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:600px;height:300px;border-radius:50%;background:rgba(201,145,42,0.04);pointer-events:none}
+.home-cta h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);color:var(--cream);margin-bottom:0.75rem}
+.home-cta p{font-size:0.95rem;color:rgba(255,253,247,0.45);max-width:460px;margin:0 auto 2.5rem;line-height:1.85}
+.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+/* ═══════════════════════════════════════
+   INNER PAGES SHARED
+═══════════════════════════════════════ */
+.inner-wrap{padding-top:68px}
+.pg-hero{background:var(--brown);padding:55px 5% 50px;position:relative;overflow:hidden}
+.pg-hero::after{content:'';position:absolute;right:0;top:0;bottom:0;width:45%;background:radial-gradient(ellipse at right center,rgba(201,145,42,0.07) 0%,transparent 70%)}
+.back-btn{display:inline-flex;align-items:center;gap:7px;color:rgba(255,253,247,0.4);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;margin-bottom:1.5rem;transition:color 0.2s;background:none;border:none;padding:0}
+.back-btn:hover{color:var(--gold)}
+.pg-label{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem}
+.pg-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4.5vw,3.6rem);font-weight:700;color:var(--cream);line-height:1.1;margin-bottom:1rem;max-width:700px}
+.pg-hero-sub{font-size:0.95rem;color:rgba(255,253,247,0.48);max-width:560px;line-height:1.9}
+.pg-body{padding:0}
+
+/* BENEFIT BAND */
+.benefit-band{background:var(--gold);padding:18px 5%;display:flex;gap:3rem;flex-wrap:wrap;align-items:center;justify-content:center}
+.bb-item{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:600;color:var(--brown);letter-spacing:0.3px}
+.bb-icon{font-size:1rem}
+
+/* SECTION BLOCKS */
+.blk{padding:60px 5%}
+.blk.alt{background:var(--cream2)}
+.blk.dark{background:var(--brown)}
+.blk.dark .sec-title{color:var(--cream)}
+.blk.dark .sec-sub{color:rgba(255,253,247,0.45)}
+.blk h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:700;color:var(--brown);margin-bottom:0.75rem}
+.blk.dark h2{color:var(--cream)}
+
+/* FEATURE GRID */
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;margin-top:2rem}
+.feat{background:#fff;border:1px solid var(--cream-border);border-radius:9px;padding:1.5rem;border-left:3px solid var(--gold)}
+.blk.dark .feat{background:rgba(255,253,247,0.04);border-color:rgba(201,145,42,0.18);border-left-color:var(--gold)}
+.blk.dark .feat h4{color:var(--cream)}
+.blk.dark .feat p{color:rgba(255,253,247,0.4)}
+.feat h4{font-size:14px;font-weight:600;color:var(--brown);margin-bottom:0.45rem}
+.feat p{font-size:13px;color:var(--text-light);line-height:1.75}
+
+/* HOW IT BENEFITS YOU */
+.benefits-two{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;margin-top:2rem}
+@media(max-width:700px){.benefits-two{grid-template-columns:1fr}}
+.benefit-item{display:flex;gap:1rem;align-items:flex-start;padding:1.25rem;border-radius:8px;background:#fff;border:1px solid var(--cream-border);margin-bottom:1rem}
+.bi-icon{width:40px;height:40px;background:rgba(201,145,42,0.1);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.bi-text h5{font-size:14px;font-weight:600;color:var(--brown);margin-bottom:3px}
+.bi-text p{font-size:13px;color:var(--text-light);line-height:1.7}
+
+/* STEP PROCESS */
+.steps{display:flex;flex-direction:column;gap:0;margin-top:2rem;position:relative}
+.steps::before{content:'';position:absolute;left:19px;top:20px;bottom:20px;width:2px;background:linear-gradient(to bottom,var(--gold),rgba(201,145,42,0.1))}
+.step{display:flex;gap:1.25rem;align-items:flex-start;padding-bottom:1.75rem}
+.step-n{width:40px;height:40px;border-radius:50%;background:var(--brown);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:700;color:var(--gold);flex-shrink:0;position:relative;z-index:1}
+.step-body h5{font-size:14px;font-weight:600;color:var(--brown);margin-bottom:4px;margin-top:8px}
+.step-body p{font-size:13px;color:var(--text-light);line-height:1.75}
+
+/* INFO TABLE */
+.info-table{width:100%;border-collapse:collapse;margin-top:1.5rem;font-size:13px}
+.info-table th{background:var(--brown);color:var(--gold);padding:12px 16px;text-align:left;font-weight:600;font-size:12px;letter-spacing:0.5px}
+.info-table td{padding:11px 16px;border-bottom:1px solid var(--cream-border);color:var(--text-mid)}
+.info-table tr:nth-child(even) td{background:rgba(201,145,42,0.03)}
+.check{color:var(--green);font-weight:700}
+.cross{color:var(--text-light)}
+
+/* PAIR CARDS */
+.pair-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;margin-top:2rem}
+.pair-card{background:var(--cream);border:1px solid var(--cream-border);border-radius:10px;padding:1.5rem}
+.pair-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem}
+.pair-name{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:700;color:var(--brown)}
+.bias{font-size:10px;font-weight:700;letter-spacing:1px;padding:3px 10px;border-radius:2px}
+.bull{background:rgba(27,138,88,0.12);color:#1B8A58;border:1px solid rgba(27,138,88,0.25)}
+.bear{background:rgba(185,28,28,0.1);color:#B91C1C;border:1px solid rgba(185,28,28,0.2)}
+.neutral{background:rgba(201,145,42,0.12);color:#8A6A2A;border:1px solid rgba(201,145,42,0.25)}
+.pair-card h5{font-size:11px;font-weight:700;letter-spacing:1px;color:var(--text-light);text-transform:uppercase;margin-bottom:0.3rem;margin-top:0.8rem}
+.pair-card p{font-size:12px;color:var(--text-light);line-height:1.65}
+.divider{height:1px;background:var(--cream-border);margin:0.75rem 0}
+
+/* STRATEGY TABS */
+.strat-tabs{display:flex;gap:0.65rem;margin-bottom:2rem;flex-wrap:wrap}
+.stab{padding:8px 18px;font-size:12px;font-weight:600;letter-spacing:0.8px;text-transform:uppercase;border:1px solid var(--cream-border);border-radius:3px;cursor:pointer;background:transparent;color:var(--text-mid);transition:all 0.2s}
+.stab.active{background:var(--brown);color:var(--gold);border-color:var(--brown)}
+.stab:hover:not(.active){border-color:var(--gold);color:var(--gold)}
+.sp{display:none}.sp.active{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+@media(max-width:680px){.sp.active{grid-template-columns:1fr}}
+.sp h3{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;color:var(--brown);margin-bottom:0.75rem}
+.sp p{font-size:14px;color:var(--text-mid);line-height:1.85;margin-bottom:0.85rem}
+.stag{display:inline-block;background:rgba(201,145,42,0.1);color:var(--gold);font-size:10px;font-weight:700;padding:3px 9px;border-radius:2px;border:1px solid rgba(201,145,42,0.22);margin:0 4px 5px 0;letter-spacing:0.8px}
+.pillar{background:var(--cream2);border:1px solid var(--cream-border);border-radius:8px;padding:1rem 1.25rem;border-left:3px solid var(--gold);margin-bottom:0.85rem}
+.pillar h5{font-size:13px;font-weight:600;color:var(--brown);margin-bottom:0.3rem}
+.pillar p{font-size:12px;color:var(--text-light);line-height:1.65}
+
+/* NEWS */
+.news-bar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:1.5rem}
+.live-badge{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:#B91C1C;letter-spacing:1px;text-transform:uppercase}
+.ldot{width:7px;height:7px;border-radius:50%;background:#EF4444;animation:pulse 1.5s infinite}
+.nfilter{display:flex;gap:0.5rem;flex-wrap:wrap}
+.nfbtn{padding:5px 13px;font-size:11px;font-weight:600;letter-spacing:0.8px;text-transform:uppercase;border:1px solid var(--cream-border);border-radius:2px;cursor:pointer;background:transparent;color:var(--text-mid);transition:all 0.2s}
+.nfbtn.active{background:var(--brown);color:var(--gold);border-color:var(--brown)}
+.news-list{display:flex;flex-direction:column;gap:1rem}
+.news-item{background:var(--cream);border:1px solid var(--cream-border);border-radius:9px;padding:1.25rem;display:flex;gap:1rem;transition:border-color 0.2s}
+.news-item:hover{border-color:var(--gold)}
+.nimp{width:5px;flex-shrink:0;border-radius:3px;align-self:stretch;min-height:60px}
+.ih{background:#EF4444}.im{background:#F9A825}.il{background:#78909C}
+.nbody{flex:1}
+.nmeta{display:flex;gap:0.6rem;align-items:center;margin-bottom:0.3rem;flex-wrap:wrap}
+.ntime{font-size:11px;color:var(--text-light)}
+.ncur{font-size:10px;font-weight:700;background:rgba(201,145,42,0.1);color:var(--gold);padding:2px 7px;border-radius:2px;border:1px solid rgba(201,145,42,0.2);letter-spacing:0.8px}
+.nimp-l{font-size:10px;font-weight:700;letter-spacing:0.4px}
+.lh{color:#EF4444}.lm{color:#F9A825}.ll{color:var(--text-light)}
+.ntitle{font-size:14px;font-weight:600;color:var(--brown);margin-bottom:0.25rem;line-height:1.4}
+.ndesc{font-size:12px;color:var(--text-light);line-height:1.6}
+.nresult{display:inline-block;margin-top:0.35rem;font-size:11px;font-weight:600;padding:2px 8px;border-radius:2px}
+.rb{background:rgba(27,138,88,0.1);color:#1B8A58}
+.rr{background:rgba(185,28,28,0.08);color:#B91C1C}
+.rn{background:rgba(201,145,42,0.1);color:#8A6A2A}
+
+/* BOT CARDS */
+.bot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:2rem}
+.bot-card{background:rgba(255,253,247,0.05);border:1px solid rgba(201,145,42,0.18);border-radius:12px;padding:1.75rem;transition:border-color 0.2s}
+.bot-card:hover{border-color:var(--gold)}
+.bc-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem}
+.btag{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:3px 10px;border-radius:2px}
+.live{background:rgba(105,240,174,0.15);color:#69F0AE;border:1px solid rgba(105,240,174,0.25)}
+.soon{background:rgba(201,145,42,0.15);color:var(--gold);border:1px solid rgba(201,145,42,0.25)}
+.bot-card h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--cream);margin-bottom:0.5rem}
+.bot-card p{font-size:13px;color:rgba(255,253,247,0.42);line-height:1.65;margin-bottom:1.25rem}
+.bot-stats{display:flex;gap:1.5rem;flex-wrap:wrap}
+.bsv{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--gold)}
+.bsl{font-size:10px;color:rgba(255,253,247,0.3);letter-spacing:0.8px;text-transform:uppercase;margin-top:2px}
+.expand-btn{display:inline-flex;align-items:center;gap:5px;margin-top:1.25rem;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,145,42,0.3);padding:7px 14px;border-radius:2px;background:transparent;cursor:pointer;transition:background 0.2s}
+.expand-btn:hover{background:rgba(201,145,42,0.1)}
+.chev{transition:transform 0.3s;display:inline-block}
+.chev.open{transform:rotate(180deg)}
+.rp{display:none;margin-top:1.5rem;border:1px solid rgba(201,145,42,0.2);border-radius:10px;overflow:hidden}
+.rp.open{display:block}
+.rp-tabs{display:flex;border-bottom:1px solid rgba(201,145,42,0.18);background:rgba(255,253,247,0.02)}
+.rtab{flex:1;padding:10px;text-align:center;font-size:11px;font-weight:600;letter-spacing:0.8px;text-transform:uppercase;color:rgba(255,253,247,0.35);cursor:pointer;border-bottom:2px solid transparent;transition:all 0.2s}
+.rtab.active{color:var(--gold);border-bottom-color:var(--gold);background:rgba(201,145,42,0.05)}
+.rc{display:none;padding:1.5rem}.rc.active{display:block}
+.roi-row{display:flex;gap:0.85rem;margin-bottom:1.5rem;flex-wrap:wrap}
+.roi-cell{flex:1;min-width:80px;background:rgba(255,253,247,0.04);border:1px solid rgba(201,145,42,0.14);border-radius:7px;padding:0.85rem;text-align:center}
+.roi-v{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:#69F0AE}
+.roi-l{font-size:10px;color:rgba(255,253,247,0.3);letter-spacing:0.8px;text-transform:uppercase;margin-top:3px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:0.75rem;margin-bottom:1.25rem}
+.kpi{background:rgba(255,253,247,0.04);border:1px solid rgba(201,145,42,0.14);border-radius:7px;padding:0.85rem}
+.kv{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:var(--gold)}
+.kv.g{color:#69F0AE}
+.kl{font-size:10px;color:rgba(255,253,247,0.3);letter-spacing:0.8px;text-transform:uppercase;margin-top:2px}
+.rfoot{display:flex;gap:1.5rem;flex-wrap:wrap;padding-top:1rem;border-top:1px solid rgba(201,145,42,0.12);font-size:12px;color:rgba(255,253,247,0.35)}
+.rfoot span{color:rgba(255,253,247,0.65);font-weight:500}
+.req-box{background:rgba(201,145,42,0.06);border:1px solid rgba(201,145,42,0.18);border-radius:9px;padding:1.5rem}
+.req-box h4{font-size:14px;font-weight:600;color:var(--cream);margin-bottom:0.3rem}
+.req-box p{font-size:12px;color:rgba(255,253,247,0.4);line-height:1.6;margin-bottom:1rem}
+.req-form{display:flex;flex-direction:column;gap:0.65rem}
+.req-form input,.req-form textarea{background:rgba(255,253,247,0.05);border:1px solid rgba(201,145,42,0.2);border-radius:3px;padding:10px 12px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--cream);outline:none;width:100%;transition:border-color 0.2s}
+.req-form input:focus,.req-form textarea:focus{border-color:var(--gold)}
+.req-form input::placeholder,.req-form textarea::placeholder{color:rgba(255,253,247,0.22)}
+.req-form textarea{resize:none;height:65px}
+.req-btn{background:var(--gold);color:var(--brown);padding:10px;border:none;border-radius:3px;font-size:13px;font-weight:700;cursor:pointer;width:100%}
+.req-ok{display:none;font-size:12px;color:#69F0AE;text-align:center;padding:0.5rem}
+
+/* PRICING */
+.price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;margin-top:2.5rem}
+.pcard{background:#fff;border:1px solid var(--cream-border);border-radius:10px;padding:2rem;position:relative}
+.pcard.feat{background:var(--brown);border-color:var(--gold)}
+.pcard.feat h3,.pcard.feat .price{color:var(--cream)}
+.pcard.feat .psub,.pcard.feat ul li{color:rgba(255,253,247,0.5)}
+.pcard.feat ul li{border-bottom-color:rgba(201,145,42,0.12)!important}
+.fbadge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--brown);font-size:10px;font-weight:700;padding:4px 14px;border-radius:2px;letter-spacing:1px;white-space:nowrap}
+.pcard h3{font-size:15px;font-weight:600;color:var(--brown);margin-bottom:0.4rem}
+.price{font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:700;color:var(--brown);line-height:1.1}
+.psub{font-size:12px;color:var(--text-light);margin-bottom:1.5rem}
+.pcard ul{list-style:none;margin-bottom:2rem}
+.pcard ul li{font-size:13px;color:var(--text-mid);padding:7px 0;border-bottom:1px solid var(--cream-border);display:flex;gap:8px}
+.pcard ul li::before{content:'—';color:var(--gold);font-weight:700;flex-shrink:0}
+.pbtn{display:block;width:100%;text-align:center;padding:12px;border-radius:3px;font-size:13px;font-weight:700;cursor:pointer;border:none;letter-spacing:0.4px;transition:filter 0.2s}
+.pbtn:hover{filter:brightness(1.07)}
+.pbtn-dark{background:var(--brown);color:var(--gold)}
+.pbtn-gold{background:var(--gold);color:var(--brown)}
+.pbtn-out{background:transparent;color:var(--brown);border:1px solid var(--cream-border)!important;border-radius:3px}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:4rem;align-items:start}
+@media(max-width:760px){.contact-grid{grid-template-columns:1fr}}
+.cdet{display:flex;align-items:center;gap:12px;margin-bottom:1rem}
+.cico{width:38px;height:38px;background:rgba(201,145,42,0.1);border:1px solid rgba(201,145,42,0.22);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.cdet span{font-size:13px;color:var(--text-mid)}
+.cform{display:flex;flex-direction:column;gap:1rem}
+.cform input,.cform textarea,.cform select{width:100%;padding:12px 14px;border:1px solid var(--cream-border);border-radius:3px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--brown);background:var(--cream);outline:none;transition:border-color 0.2s}
+.cform input:focus,.cform textarea:focus,.cform select:focus{border-color:var(--gold)}
+.cform textarea{resize:vertical;min-height:110px}
+.cform button{background:var(--brown);color:var(--gold);padding:13px;border:1px solid var(--gold);border-radius:3px;font-size:14px;font-weight:600;cursor:pointer;width:100%}
+
+/* CTA INNER */
+.inner-cta{background:var(--brown);padding:55px 5%;text-align:center}
+.inner-cta h2{font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:var(--cream);margin-bottom:0.6rem}
+.inner-cta p{font-size:14px;color:rgba(255,253,247,0.42);max-width:440px;margin:0 auto 2rem;line-height:1.85}
+
+/* FOOTER */
+footer{background:var(--brown);color:rgba(255,253,247,0.3);text-align:center;padding:2.5rem 5%;font-size:12px;border-top:1px solid rgba(255,255,255,0.04)}
+footer a{color:rgba(201,145,42,0.45);text-decoration:none}
+footer a:hover{color:var(--gold)}
+.footer-disc{font-size:11px;color:rgba(255,255,255,0.15);margin-top:0.6rem;line-height:1.65}
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <div class="nav-logo" onclick="goHome()">
+    <svg viewBox="0 0 220 44" xmlns="http://www.w3.org/2000/svg" height="40">
+      <polyline points="4,34 14,22 22,26 34,12 44,16 56,4" fill="none" stroke="#C9912A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="56" cy="4" r="3.5" fill="#C9912A"/>
+      <line x1="4" y1="38" x2="60" y2="38" stroke="#C9912A" stroke-width="0.5" opacity="0.35"/>
+      <text x="70" y="16" font-family="Georgia,serif" font-size="9" fill="#B08040" letter-spacing="3">M READER</text>
+      <text x="69" y="36" font-family="Georgia,serif" font-size="22" font-weight="700" fill="#1A0E02" letter-spacing="-0.5">Market<tspan fill="#C9912A">%</tspan></text>
+    </svg>
+  </div>
+  <ul class="nav-links">
+    <li><a onclick="go('indian')">Indian Market</a></li>
+    <li><a onclick="go('forex')">Forex</a></li>
+    <li><a onclick="go('bots')">Our Bots</a></li>
+    <li><a onclick="go('pricing')">Pricing</a></li>
+    <li><a onclick="go('contact')">Contact</a></li>
+  </ul>
+  <button class="nav-cta" onclick="go('contact')">Get Started</button>
+</nav>
+
+<!-- ══ TICKER ══ -->
+<div class="ticker-wrap">
+  <div class="ticker-inner">
+    <span class="ti">NIFTY 50 <b class="up">▲ 22,456.80 (+0.42%)</b></span>
+    <span class="ti">SENSEX <b class="up">▲ 73,982.45 (+0.38%)</b></span>
+    <span class="ti">BANKNIFTY <b class="dn">▼ 47,215.60 (-0.15%)</b></span>
+    <span class="ti">EUR/USD <b class="up">▲ 1.0842 (+0.21%)</b></span>
+    <span class="ti">XAU/USD <b class="up">▲ 3,215.40 (+0.54%)</b></span>
+    <span class="ti">US30 <b class="up">▲ 38,950 (+0.32%)</b></span>
+    <span class="ti">USD/INR <b class="dn">▼ 83.12 (-0.05%)</b></span>
+    <span class="ti">GBP/USD <b class="up">▲ 1.2745 (+0.18%)</b></span>
+    &nbsp;&nbsp;&nbsp;
+    <span class="ti">NIFTY 50 <b class="up">▲ 22,456.80 (+0.42%)</b></span>
+    <span class="ti">SENSEX <b class="up">▲ 73,982.45 (+0.38%)</b></span>
+    <span class="ti">BANKNIFTY <b class="dn">▼ 47,215.60 (-0.15%)</b></span>
+    <span class="ti">EUR/USD <b class="up">▲ 1.0842 (+0.21%)</b></span>
+    <span class="ti">XAU/USD <b class="up">▲ 3,215.40 (+0.54%)</b></span>
+    <span class="ti">US30 <b class="up">▲ 38,950 (+0.32%)</b></span>
+    <span class="ti">USD/INR <b class="dn">▼ 83.12 (-0.05%)</b></span>
+    <span class="ti">GBP/USD <b class="up">▲ 1.2745 (+0.18%)</b></span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     HOME PAGE
+════════════════════════════════════════ -->
+<div class="page active" id="pg-home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-eyebrow"><span class="hero-dot"></span><span>India's Trusted Market Consultancy Since 2019</span></div>
+    <h1>Read the Market.<br><em>Stay Ahead. Always.</em></h1>
+    <p class="hero-sub">We provide professional market signals, research-backed trade setups, and AI-powered trading bots — giving every trader the edge that institutions already have.</p>
+    <div class="hero-btns">
+      <button class="btn-gold" onclick="go('pricing')">Explore Plans</button>
+      <button class="btn-ghost" onclick="document.getElementById('services-section').scrollIntoView({behavior:'smooth'})">Our Services ↓</button>
+    </div>
+    <div class="hero-stats-row">
+      <div class="hstat"><div class="hstat-n">1,200+</div><div class="hstat-l">Active Clients</div></div>
+      <div class="hstat"><div class="hstat-n">87%</div><div class="hstat-l">Win Rate 2024</div></div>
+      <div class="hstat"><div class="hstat-n">5+</div><div class="hstat-l">Yrs Experience</div></div>
+      <div class="hstat"><div class="hstat-n">₹0</div><div class="hstat-l">Hidden Charges</div></div>
+      <div class="hstat"><div class="hstat-n">248%</div><div class="hstat-l">Bot ROI (XAU)</div></div>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section class="home-services" id="services-section">
+    <div class="sec-label">What We Do</div>
+    <h2 class="sec-title">Services Designed for<br>Serious Traders</h2>
+    <div class="sec-rule"></div>
+    <p class="sec-sub">From Indian equity calls to global Forex signals and fully automated trading bots — we cover every market you trade. Click any service to explore in detail.</p>
+    <div class="services-grid">
+
+      <div class="svc-card" onclick="go('indian')">
+        <div class="svc-icon">📈</div>
+        <h3>Indian Market Consultancy</h3>
+        <p>Expert coverage of NSE & BSE — equity calls, F&O strategies, IPO advisory, and personal portfolio reviews delivered every trading day.</p>
+        <ul class="svc-benefits">
+          <li>Daily equity calls with entry, SL & targets by 9:10 AM</li>
+          <li>NIFTY, BankNIFTY & Midcap F&O strategies</li>
+          <li>IPO research with APPLY/AVOID recommendation</li>
+          <li>Monthly 1-on-1 portfolio review session</li>
+          <li>Real-time Telegram & WhatsApp alerts</li>
+        </ul>
+        <span class="svc-cta">Explore Service →</span>
+      </div>
+
+      <div class="svc-card" onclick="go('forex')">
+        <div class="svc-icon">💱</div>
+        <h3>Global Forex Signals</h3>
+        <p>Precision signals across 12+ currency pairs — backed by Price Action, SMC, and ICT methodology. Pair economics, live news, and COT reports included.</p>
+        <ul class="svc-benefits">
+          <li>Signals on EUR/USD, GBP/USD, XAU/USD, USD/INR & more</li>
+          <li>3 proven strategies: Price Action, SMC & ICT explained</li>
+          <li>Weekly COT institutional positioning reports</li>
+          <li>Macro pair economics analysis per currency pair</li>
+          <li>Live high-impact news with trading bias</li>
+        </ul>
+        <span class="svc-cta">Explore Service →</span>
+      </div>
+
+      <div class="svc-card" onclick="go('bots')">
+        <div class="svc-icon">🤖</div>
+        <h3>AI Trading Bots</h3>
+        <p>Fully automated, 24/5 algorithmic bots — backtested over 3 years, live on cTrader. Your funds stay in your account at all times.</p>
+        <ul class="svc-benefits">
+          <li>Fibswing Bot: 248% ROI on XAU/USD since 2023</li>
+          <li>Fibswing Bot: 458% ROI on US 30 since 2023</li>
+          <li>Auto stop-loss & risk management built-in</li>
+          <li>1-on-1 onboarding call & installation support</li>
+          <li>Full backtesting reports — equity curves & trade logs</li>
+        </ul>
+        <span class="svc-cta">Explore Service →</span>
+      </div>
+
+      <div class="svc-card" onclick="go('pricing')">
+        <div class="svc-icon">💼</div>
+        <h3>Transparent Pricing</h3>
+        <p>Three clear plans — Starter, Pro Trader, and Bot License. No lock-in periods, no hidden fees. Cancel or upgrade anytime.</p>
+        <ul class="svc-benefits">
+          <li>Starter from ₹999/month — ideal for beginners</li>
+          <li>Pro Trader ₹2,499/month — full Indian + Forex access</li>
+          <li>Bot License ₹7,999/year — includes lifetime updates</li>
+          <li>UPI, Net Banking & Card payments accepted</li>
+        </ul>
+        <span class="svc-cta">View Pricing →</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section class="why-us">
+    <div class="sec-label" style="color:var(--gold)">Why M Reader%</div>
+    <h2 class="sec-title" style="color:var(--cream)">What Sets Us Apart</h2>
+    <div class="sec-rule"></div>
+    <p class="sec-sub">We don't just give signals — we teach you why every trade is taken so you build real trading intelligence over time.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-num">01</div>
+        <h4>Research-Backed, Always</h4>
+        <p>Every signal goes through a 5-step research process — screener scan, fundamental filter, technical confirmation, and live monitoring. No tips, no rumours.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">02</div>
+        <h4>Institutional Methodology</h4>
+        <p>We use the same frameworks that institutional traders use — Smart Money Concepts, ICT Kill Zones, and COT data — making our signals exceptionally precise.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">03</div>
+        <h4>Full Transparency</h4>
+        <p>All bot performance reports are fully auditable — equity curves, trade logs, drawdown charts. We publish what works and what doesn't, always.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">04</div>
+        <h4>India-Focused Expertise</h4>
+        <p>Based in Chennai, we understand the Indian market microstructure — RBI intervention zones, FII/DII patterns, and the NSE/BSE liquidity dynamics that affect every trade.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">05</div>
+        <h4>Risk First Philosophy</h4>
+        <p>Every single call we issue has a defined Stop Loss. We never recommend a trade without a clear exit plan. Capital preservation is the foundation of consistent returns.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">06</div>
+        <h4>5+ Years, 1,200+ Clients</h4>
+        <p>We've been active since 2019 through bull runs, COVID crashes, rate hike cycles, and global uncertainty. Our track record speaks across all market conditions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPANY HISTORY -->
+  <section class="history">
+    <div class="sec-label">Our Story</div>
+    <h2 class="sec-title">Company History</h2>
+    <div class="sec-rule"></div>
+    <p class="sec-sub">M Reader% was built by traders, for traders — born out of frustration with opaque "tip providers" who never explained their reasoning.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:3rem;align-items:start">
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2019</div>
+          <h4>Founded in Chennai</h4>
+          <p>M Reader% was founded by two market practitioners with combined experience of 12+ years across equity, derivatives, and Forex markets. The initial focus was purely Indian equity calls via Telegram.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2020</div>
+          <h4>COVID Crisis — Proven Under Pressure</h4>
+          <p>The March 2020 crash was our defining moment. While most tip providers went silent, we issued precise short-side F&O strategies and helped clients protect their portfolios. Subscriber count grew 3x in 6 months.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2021</div>
+          <h4>Forex Coverage Launched</h4>
+          <p>We expanded into global Forex markets — EUR/USD, XAU/USD, and GBP/USD. Our Price Action and early SMC methodology attracted a new segment of traders looking beyond Indian markets.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2022</div>
+          <h4>Crossed 500 Active Subscribers</h4>
+          <p>Word-of-mouth growth took us past 500 active paying subscribers. We introduced the Pro Trader plan, portfolio review services, and started publishing weekly COT analysis reports.</p>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2023</div>
+          <h4>Fibswing Bot — First Algorithm Launched</h4>
+          <p>After 18 months of development and rigorous backtesting, the Fibswing Bot went live on cTrader. In its first year of live trading, it delivered +42% ROI on XAU/USD and +78% on US 30, in line with backtest expectations.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2024</div>
+          <h4>1,000+ Clients Milestone</h4>
+          <p>M Reader% crossed 1,000 active clients — a milestone achieved with zero paid advertising. We deepened our ICT methodology coverage and launched monthly 1-on-1 portfolio review sessions for Pro subscribers.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2025–26</div>
+          <h4>1,200+ Clients & Expanding Bot Lineup</h4>
+          <p>Currently serving 1,200+ active clients across India. NiftyScalper (MT5) and ForexTrend (MT4/MT5) bots in advanced development. Our XAU/USD bot has now delivered 248%+ cumulative ROI since launch.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERFORMANCE -->
+  <section class="performance">
+    <div class="sec-label" style="color:var(--gold)">Track Record</div>
+    <h2 class="sec-title" style="color:var(--cream)">Our Performance Numbers</h2>
+    <div class="sec-rule"></div>
+    <p class="sec-sub">All figures are independently auditable. Bot data sourced from cTrader backtesting reports. Signal win rates calculated on closed, executed trades only.</p>
+
+    <div class="perf-tabs">
+      <button class="ptab active" onclick="switchPerf('equity',this)">Indian Equity</button>
+      <button class="ptab" onclick="switchPerf('forex',this)">Forex Signals</button>
+      <button class="ptab" onclick="switchPerf('xau',this)">Bot: XAU/USD</button>
+      <button class="ptab" onclick="switchPerf('us30',this)">Bot: US 30</button>
+    </div>
+
+    <!-- EQUITY -->
+    <div class="perf-content active" id="pc-equity">
+      <div class="perf-grid">
+        <div class="pkpi"><div class="pkpi-val g">87%</div><div class="pkpi-lbl">Win Rate 2024</div></div>
+        <div class="pkpi"><div class="pkpi-val">1,200+</div><div class="pkpi-lbl">Active Clients</div></div>
+        <div class="pkpi"><div class="pkpi-val g">5/day</div><div class="pkpi-lbl">Avg Calls Issued</div></div>
+        <div class="pkpi"><div class="pkpi-val">1:2.5</div><div class="pkpi-lbl">Avg Risk:Reward</div></div>
+        <div class="pkpi"><div class="pkpi-val g">5+</div><div class="pkpi-lbl">Years Active</div></div>
+      </div>
+      <div class="perf-chart-row">
+        <div class="perf-bar-wrap">
+          <div class="perf-bar-label"><span>Equity Calls Win Rate</span><span>87%</span></div>
+          <div class="perf-bar-track"><div class="perf-bar-fill" style="width:87%"></div></div>
+        </div>
+        <div class="perf-bar-wrap">
+          <div class="perf-bar-label"><span>F&O Strategies Win Rate</span><span>79%</span></div>
+          <div class="perf-bar-track"><div class="perf-bar-fill" style="width:79%"></div></div>
+        </div>
+        <div class="perf-bar-wrap">
+          <div class="perf-bar-label"><span>IPO Listing Gain Rate</span><span>91%</span></div>
+          <div class="perf-bar-track"><div class="perf-bar-fill" style="width:91%"></div></div>
+        </div>
+      </div>
+      <div class="perf-disclaimer">* Win rates calculated on fully closed, executed trade calls. Results reflect 2024 calendar year performance across all active Pro and Starter subscribers.</div>
+    </div>
+
+    <!-- FOREX -->
+    <div class="perf-content" id="pc-forex">
+      <div class="perf-grid">
+        <div class="pkpi"><div class="pkpi-val g">82%</div><div class="pkpi-lbl">Forex Win Rate</div></div>
+        <div class="pkpi"><div class="pkpi-val">12+</div><div class="pkpi-lbl">Pairs Covered</div></div>
+        <div class="pkpi"><div class="pkpi-val g">1:2.8</div><div class="pkpi-lbl">Avg R:R Ratio</div></div>
+        <div class="pkpi"><div class="pkpi-val">Weekly</div><div class="pkpi-lbl">COT Reports</div></div>
+      </div>
+      <div class="perf-chart-row">
+        <div class="perf-bar-wrap">
+          <div class="perf-bar-label"><span>XAU/USD Signal Win Rate</span><span>86%</span></div>
+          <div class="perf-bar-track"><div class="perf-bar-fill" style="width:86%"></div></div>
+        </div>
+        <div class="perf-bar-wrap">
+          <div class="perf-bar-label"><span>EUR/USD Signal Win Rate</span><span>81%</span></div>
+          <div class="perf-bar-track"><div class="perf-bar-fill" style="width:81%"></div></div>
+        </div>
+        <div class="perf-bar-wrap">
+          <div class="perf-bar-label"><span>GBP/USD Signal Win Rate</span><span>78%</span></div>
+          <div class="perf-bar-track"><div class="perf-bar-fill" style="width:78%"></div></div>
+        </div>
+      </div>
+      <div class="perf-disclaimer">* Signal win rates based on closed Forex positions across Pro subscribers, 2024 full year. Individual results may vary based on execution and broker spreads.</div>
+    </div>
+
+    <!-- XAU BOT -->
+    <div class="perf-content" id="pc-xau">
+      <div class="perf-grid">
+        <div class="pkpi"><div class="pkpi-val g">+248%</div><div class="pkpi-lbl">Total ROI</div></div>
+        <div class="pkpi"><div class="pkpi-val g">99.7%</div><div class="pkpi-lbl">Win Rate</div></div>
+        <div class="pkpi"><div class="pkpi-val">384</div><div class="pkpi-lbl">Total Trades</div></div>
+        <div class="pkpi"><div class="pkpi-val">$24,825</div><div class="pkpi-lbl">Net Profit ($10k)</div></div>
+        <div class="pkpi"><div class="pkpi-val">386.67</div><div class="pkpi-lbl">Profit Factor</div></div>
+      </div>
+      <div class="perf-chart-row">
+        <div class="perf-bar-wrap">
+          <div class="perf-bar-label"><span>6-Month ROI</span><span>+12.79%</span></div>
+          <div class="perf-bar-track"><div class="perf-bar-fill" style="width:45%"></div></div>
+        </div>
+        <div class="perf-bar-wrap">
+          <div class="perf-bar-label"><span>1-Year ROI</span><span>+42.42%</span></div>
+          <div class="perf-bar-track"><div class="perf-bar-fill" style="width:60%"></div></div>
+        </div>
+        <div class="perf-bar-wrap">
+          <div class="perf-bar-label"><span>3-Year Cumulative ROI</span><span>+248%</span></div>
+          <div class="perf-bar-track"><div class="perf-bar-fill" style="width:100%"></div></div>
+        </div>
+      </div>
+      <div class="perf-disclaimer">* Data from cTrader backtesting report, Jan 2023–Apr 2026, starting capital $10,000. Backtesting uses historical data and does not guarantee future results.</div>
+    </div>
+
+    <!-- US30 BOT -->
+    <div class="perf-content" id="pc-us30">
+      <div class="perf-grid">
+        <div class="pkpi"><div class="pkpi-val g">+458%</div><div class="pkpi-lbl">Total ROI</div></div>
+        <div class="pkpi"><div class="pkpi-val g">97.3%</div><div class="pkpi-lbl">Win Rate</div></div>
+        <div class="pkpi"><div class="pkpi-val">411</div><div class="pkpi-lbl">Total Trades</div></div>
+        <div class="pkpi"><div class="pkpi-val">$45,814</div><div class="pkpi-lbl">Net Profit ($10k)</div></div>
+        <div class="pkpi"><div class="pkpi-val">46.31</div><div class="pkpi-lbl">Profit Factor</div></div>
+      </div>
+      <div class="perf-chart-row">
+        <div class="perf-bar-wrap">
+          <div class="perf-bar-label"><span>6-Month ROI</span><span>+33.7%</span></div>
+          <div class="perf-bar-track"><div class="perf-bar-fill" style="width:55%"></div></div>
+        </div>
+        <div class="perf-bar-wrap">
+          <div class="perf-bar-label"><span>1-Year ROI</span><span>+78.57%</span></div>
+          <div class="perf-bar-track"><div class="perf-bar-fill" style="width:72%"></div></div>
+        </div>
+        <div class="perf-bar-wrap">
+          <div class="perf-bar-label"><span>3-Year Cumulative ROI</span><span>+458%</span></div>
+          <div class="perf-bar-track"><div class="perf-bar-fill" style="width:100%"></div></div>
+        </div>
+      </div>
+      <div class="perf-disclaimer">* Data from cTrader backtesting report, Jan 2023–Apr 2026, starting capital $10,000. Backtesting uses historical data and does not guarantee future results.</div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="sec-label">Client Voices</div>
+    <h2 class="sec-title">What Our Clients Say</h2>
+    <div class="sec-rule"></div>
+    <div class="testi-grid">
+      <div class="tcard">
+        <p class="tcard-text">I've been with M Reader% for 2 years. Their NIFTY F&O strategies saved my portfolio during the 2024 correction. The SL discipline alone is worth 10x the subscription cost.</p>
+        <div class="tcard-author">
+          <div class="tcard-avatar">RK</div>
+          <div><div class="tcard-name">Rajesh K.</div><div class="tcard-role">Equity Trader, Coimbatore</div></div>
+        </div>
+      </div>
+      <div class="tcard">
+        <p class="tcard-text">The Fibswing Bot genuinely trades while I sleep. I was skeptical about the backtesting numbers but after 8 months live, it's performing exactly as promised. The onboarding call was very helpful.</p>
+        <div class="tcard-author">
+          <div class="tcard-avatar">PM</div>
+          <div><div class="tcard-name">Priya M.</div><div class="tcard-role">Bot License Subscriber, Bangalore</div></div>
+        </div>
+      </div>
+      <div class="tcard">
+        <p class="tcard-text">Their Gold (XAU/USD) signals are exceptional. The way they explain SMC order blocks and ICT OTE levels helped me understand WHY the trade is taken — not just follow blindly.</p>
+        <div class="tcard-author">
+          <div class="tcard-avatar">AS</div>
+          <div><div class="tcard-name">Arjun S.</div><div class="tcard-role">Forex Trader, Chennai</div></div>
+        </div>
+      </div>
+      <div class="tcard">
+        <p class="tcard-text">The IPO reports are thorough — GMP tracking, subscription analysis, peer valuation. I've applied to 12 IPOs this year based on their research and 10 gave listing gains. Impressive hit rate.</p>
+        <div class="tcard-author">
+          <div class="tcard-avatar">VN</div>
+          <div><div class="tcard-name">Vijay N.</div><div class="tcard-role">Pro Trader Subscriber, Mumbai</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOME CTA -->
+  <section class="home-cta">
+    <h2>Start Trading with an Edge Today</h2>
+    <p>Join 1,200+ traders who receive research-backed signals, institutional strategies, and automated bot access — all in one subscription.</p>
+    <div class="cta-btns">
+      <button class="btn-gold" onclick="go('pricing')">View All Plans</button>
+      <button class="btn-ghost" onclick="go('contact')">Talk to Us First</button>
+    </div>
+  </section>
+
+  <footer>
+    <svg viewBox="0 0 180 36" height="30" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:0.85rem">
+      <polyline points="4,28 12,18 20,22 30,10 40,14 50,4" fill="none" stroke="#C9912A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="50" cy="4" r="3" fill="#C9912A"/>
+      <text x="64" y="13" font-family="Georgia,serif" font-size="7.5" fill="rgba(201,145,42,0.55)" letter-spacing="2.5">M READER</text>
+      <text x="63" y="29" font-family="Georgia,serif" font-size="18" font-weight="700" fill="#FFFDF7" letter-spacing="-0.5">Market<tspan fill="#C9912A">%</tspan></text>
+    </svg>
+    <p>© 2025 M Reader%. All rights reserved. &nbsp;|&nbsp; <a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Disclaimer</a></p>
+    <p class="footer-disc">Trading in equities, derivatives, and Forex involves substantial risk of loss. Past performance is not indicative of future results. M Reader% does not guarantee profits. Please consult a SEBI-registered investment advisor before making any investment decisions.</p>
+  </footer>
+</div>
+
+<!-- ════════════════════════════════════════
+     PAGE: INDIAN MARKET
+════════════════════════════════════════ -->
+<div class="page" id="pg-indian">
+  <div class="inner-wrap">
+    <div class="pg-hero">
+      <button class="back-btn" onclick="goHome()">← Back to Home</button>
+      <div class="pg-label">Indian Markets</div>
+      <h1>NSE & BSE Consultancy — Your Edge in Indian Markets</h1>
+      <p class="pg-hero-sub">Structured, research-backed equity calls, F&O strategies, IPO advisory, and portfolio reviews — delivered every single trading day. Here's exactly what you get and how it benefits you.</p>
+    </div>
+
+    <div class="benefit-band">
+      <div class="bb-item"><span class="bb-icon">⏰</span> Signals by 9:10 AM daily</div>
+      <div class="bb-item"><span class="bb-icon">🎯</span> 87% Win Rate (2024)</div>
+      <div class="bb-item"><span class="bb-icon">🛡️</span> Every call has a defined SL</div>
+      <div class="bb-item"><span class="bb-icon">📱</span> Live Telegram + WhatsApp alerts</div>
+      <div class="bb-item"><span class="bb-icon">📊</span> F&O + Equity + IPO covered</div>
+    </div>
+
+    <!-- OVERVIEW -->
+    <div class="blk">
+      <div class="sec-label">Service Overview</div>
+      <h2>What This Service Covers</h2>
+      <div class="sec-rule"></div>
+      <p style="font-size:14px;color:var(--text-mid);line-height:1.85;max-width:680px;margin-bottom:2rem">Our Indian market service is the most comprehensive signal & advisory service available for Indian retail traders. We cover the full trading spectrum — from quick intraday equity trades to complex multi-leg F&O strategies and pre-IPO research.</p>
+      <div class="feat-grid">
+        <div class="feat"><h4>📈 Equity Calls</h4><p>Intraday & positional tips for NSE/BSE stocks with defined entry zones, Stop Loss, and T1/T2 targets. Published every morning by 9:10 AM — before the market opens.</p></div>
+        <div class="feat"><h4>⚙️ F&O Strategies</h4><p>Options & futures strategies on NIFTY, BankNIFTY, and Midcap 50 indices. Includes directional calls, spread strategies, and pre-event volatility plays.</p></div>
+        <div class="feat"><h4>🏦 IPO Advisory</h4><p>Full pre-IPO research reports — business model, financials, GMP tracking, subscription analysis, and a clear APPLY / AVOID / NEUTRAL rating before each IPO opens.</p></div>
+        <div class="feat"><h4>📊 Portfolio Review</h4><p>Monthly 1-on-1 sessions with a senior analyst to review, rebalance, and optimise your equity portfolio. Available to Pro Trader subscribers.</p></div>
+        <div class="feat"><h4>📰 Morning Market Reports</h4><p>Daily pre-market report covering global cues, SGX Nifty levels, FII/DII data from the previous session, and the key support/resistance levels to watch.</p></div>
+        <div class="feat"><h4>🔔 Real-Time Live Alerts</h4><p>As setups trigger intraday, analysts push live updates via Telegram. Exit alerts sent immediately when targets are hit or conditions change. Zero delay.</p></div>
+      </div>
+    </div>
+
+    <!-- HOW IT BENEFITS YOU -->
+    <div class="blk alt">
+      <div class="sec-label">For You</div>
+      <h2>How This Benefits You</h2>
+      <div class="sec-rule"></div>
+      <p style="font-size:14px;color:var(--text-mid);line-height:1.85;max-width:680px;margin-bottom:2rem">Whether you're a beginner trying to learn structured trading or an experienced trader who wants high-quality daily signals — here's the tangible value you receive.</p>
+      <div class="benefits-two">
+        <div>
+          <div class="benefit-item">
+            <div class="bi-icon">⏱️</div>
+            <div class="bi-text"><h5>Save Hours of Research Every Day</h5><p>Our pre-market scan covers 4,000+ NSE/BSE stocks before 9 AM so you don't have to. You get the top setups delivered — saving 2–3 hours of chart analysis every morning.</p></div>
+          </div>
+          <div class="benefit-item">
+            <div class="bi-icon">🛡️</div>
+            <div class="bi-text"><h5>Trade With Defined Risk — Always</h5><p>Every equity call comes with a Stop Loss. You always know the maximum you can lose before entering any trade. This alone transforms how most retail traders approach the market.</p></div>
+          </div>
+          <div class="benefit-item">
+            <div class="bi-icon">📚</div>
+            <div class="bi-text"><h5>Learn WHY Every Trade is Taken</h5><p>We include a brief rationale with every signal — the pattern, the level, the reason. Over time, subscribers develop their own reading ability, not just dependency on signals.</p></div>
+          </div>
+        </div>
+        <div>
+          <div class="benefit-item">
+            <div class="bi-icon">📈</div>
+            <div class="bi-text"><h5>Access Professional F&O Strategies</h5><p>Iron Condors, Bull Spreads, Straddles — strategies used by professional traders are broken down into simple, actionable calls. Even beginners can execute them step-by-step.</p></div>
+          </div>
+          <div class="benefit-item">
+            <div class="bi-icon">🏦</div>
+            <div class="bi-text"><h5>Never Miss a Quality IPO Again</h5><p>Our IPO research covers every mainboard and SME IPO. You get a clear APPLY or AVOID recommendation with full reasoning — maximising your capital deployment in high-quality offerings only.</p></div>
+          </div>
+          <div class="benefit-item">
+            <div class="bi-icon">💼</div>
+            <div class="bi-text"><h5>Get Your Portfolio Professionally Reviewed</h5><p>The monthly portfolio review session (Pro plan) is like having a personal fund manager for 45 minutes — reviewing each holding, flagging concentration risk, and suggesting rebalancing moves.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <div class="blk">
+      <div class="sec-label">Our Process</div>
+      <h2>How Every Equity Signal Is Generated</h2>
+      <div class="sec-rule"></div>
+      <p style="font-size:14px;color:var(--text-mid);line-height:1.85;max-width:680px;margin-bottom:2rem">We never issue a call based on tips or gut feel. Every signal passes through a structured 5-step process before it reaches your phone.</p>
+      <div class="steps" style="max-width:650px">
+        <div class="step"><div class="step-n">1</div><div class="step-body"><h5>Pre-Market Screener Scan (Before 8:30 AM)</h5><p>Automated screeners run across all NSE/BSE-listed securities filtering for volume spikes, breakout patterns, ATH proximity, and technical setups from the previous session's data.</p></div></div>
+        <div class="step"><div class="step-n">2</div><div class="step-body"><h5>Fundamental Quality Filter</h5><p>Shortlisted stocks are filtered against earnings quality, institutional holding data, promoter pledging, sector momentum, and recent corporate events. We only trade stocks with a clean fundamental profile.</p></div></div>
+        <div class="step"><div class="step-n">3</div><div class="step-body"><h5>Technical Confirmation on Charts</h5><p>Surviving stocks are charted on M15 and H1 timeframes. Price Action levels, SMC order blocks, and trend structure are mapped. Entry zone, Stop Loss, and Targets are precisely calculated based on structure.</p></div></div>
+        <div class="step"><div class="step-n">4</div><div class="step-body"><h5>Signal Published by 9:10 AM</h5><p>Final signals are published on the Telegram channel with: stock name, entry range, SL, Target 1, Target 2, and a 2–3 line rationale explaining the setup. Everything you need to execute with clarity.</p></div></div>
+        <div class="step"><div class="step-n">5</div><div class="step-body"><h5>Live Intraday Monitoring & Exit Alerts</h5><p>Analysts monitor open positions throughout the session. Exit alerts are sent in real-time when targets hit, or if risk conditions change (e.g., broad market reversal). You're never left guessing.</p></div></div>
+      </div>
+    </div>
+
+    <!-- F&O DEEP DIVE -->
+    <div class="blk alt">
+      <div class="sec-label">F&O Strategies</div>
+      <h2>Options & Futures — What We Deploy</h2>
+      <div class="sec-rule"></div>
+      <p style="font-size:14px;color:var(--text-mid);line-height:1.85;max-width:680px;margin-bottom:2rem">Our F&O desk matches strategy to market condition — we never force a trade type. Each strategy below is deployed only when conditions genuinely favour it.</p>
+      <div class="feat-grid">
+        <div class="feat"><h4>Bull/Bear Call Spreads</h4><p><strong style="color:var(--brown)">Best for:</strong> When you have a directional view but want capped risk.<br><strong style="color:var(--brown)">Benefit:</strong> Lower capital requirement vs buying outright options. Max loss is defined at entry — no surprise blowups.</p></div>
+        <div class="feat"><h4>Iron Condors & Iron Fly</h4><p><strong style="color:var(--brown)">Best for:</strong> Range-bound, low-volatility markets between expiries.<br><strong style="color:var(--brown)">Benefit:</strong> Earn premium even when the market goes nowhere. Theta decay works in your favour every day.</p></div>
+        <div class="feat"><h4>Pre-Event Straddles</h4><p><strong style="color:var(--brown)">Best for:</strong> Budget, RBI Policy, Election results — high-uncertainty events.<br><strong style="color:var(--brown)">Benefit:</strong> Profit regardless of direction. Captures explosive volatility expansion on either side of the move.</p></div>
+        <div class="feat"><h4>Directional Futures Calls</h4><p><strong style="color:var(--brown)">Best for:</strong> Clear trending market conditions with strong momentum.<br><strong style="color:var(--brown)">Benefit:</strong> Higher leverage, precise entry from Price Action breakouts, tight SL keeps risk minimal relative to profit potential.</p></div>
+        <div class="feat"><h4>Theta Decay (Short Options)</h4><p><strong style="color:var(--brown)">Best for:</strong> High IV rank environments with a defined range expectation.<br><strong style="color:var(--brown)">Benefit:</strong> Premium collection from weekly expiry — consistent, low-drama income stream when deployed correctly.</p></div>
+        <div class="feat"><h4>Hedged Portfolio Positions</h4><p><strong style="color:var(--brown)">Best for:</strong> Long-term equity holders during uncertain periods.<br><strong style="color:var(--brown)">Benefit:</strong> Protective puts act as insurance on your existing holdings — peace of mind during corrections without selling your core positions.</p></div>
+      </div>
+    </div>
+
+    <!-- IPO -->
+    <div class="blk">
+      <div class="sec-label">IPO Advisory</div>
+      <h2>What Our IPO Reports Include</h2>
+      <div class="sec-rule"></div>
+      <div style="overflow-x:auto">
+        <table class="info-table">
+          <thead><tr><th>Report Section</th><th>What We Analyse</th><th>Why It Benefits You</th></tr></thead>
+          <tbody>
+            <tr><td>Business Model</td><td>Revenue model, competitive moat, market size, growth drivers</td><td>Understand if the company has a sustainable edge before committing capital</td></tr>
+            <tr><td>Financial Health</td><td>3-year revenue growth, EBITDA margin, debt/equity, cash flow</td><td>Spot financially weak companies before they disappoint post-listing</td></tr>
+            <tr><td>Valuation Analysis</td><td>P/E, P/S, EV/EBITDA vs listed peers — over/fair/undervalued?</td><td>Know if you're paying a fair price or overpaying at the issue price</td></tr>
+            <tr><td>GMP Tracking</td><td>Grey Market Premium trend from open to close of subscription</td><td>Real-time market sentiment gauge — rising GMP = strong demand signal</td></tr>
+            <tr><td>Subscription Data</td><td>QIB, HNI, Retail subscription levels updated daily</td><td>High QIB subscription = institutional validation. Low = possible listing disappointment</td></tr>
+            <tr><td>Promoter & FII Data</td><td>Promoter holding %, lock-in expiry, anchor investors</td><td>Promoter pledging or low holding = red flag. Strong anchors = confidence signal</td></tr>
+            <tr><td>Final Rating</td><td>APPLY / AVOID / NEUTRAL with clear reasoning</td><td>One clear decision — no ambiguity, no wasted time trying to interpret data yourself</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="inner-cta">
+      <h2>Ready for Research-Backed Indian Market Signals?</h2>
+      <p>Start with Starter at ₹999/mo or upgrade to Pro Trader for full F&O + Forex + Portfolio Review access.</p>
+      <div class="cta-btns">
+        <button class="btn-gold" onclick="go('pricing')">View Plans & Pricing</button>
+        <button class="btn-ghost" onclick="go('contact')">Talk to an Analyst</button>
+      </div>
+    </div>
+    <footer>
+      <p>© 2025 M Reader%. All rights reserved.</p>
+      <p class="footer-disc">Disclaimer: Trading involves substantial risk. Past performance is not indicative of future results. Please consult a SEBI-registered advisor before investing.</p>
+    </footer>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     PAGE: FOREX
+════════════════════════════════════════ -->
+<div class="page" id="pg-forex">
+  <div class="inner-wrap">
+    <div class="pg-hero">
+      <button class="back-btn" onclick="goHome()">← Back to Home</button>
+      <div class="pg-label">Global Forex Markets</div>
+      <h1>Forex Signals, Strategy & Analysis — Everything in One Place</h1>
+      <p class="pg-hero-sub">12+ currency pairs, 3 proven methodologies, live macro news, and COT institutional positioning — built for traders who want to understand the market, not just follow it.</p>
+    </div>
+
+    <div class="benefit-band">
+      <div class="bb-item"><span class="bb-icon">💱</span> 12+ pairs covered daily</div>
+      <div class="bb-item"><span class="bb-icon">🏛️</span> SMC + ICT + Price Action</div>
+      <div class="bb-item"><span class="bb-icon">📋</span> Weekly COT reports</div>
+      <div class="bb-item"><span class="bb-icon">📰</span> Live macro news with bias</div>
+      <div class="bb-item"><span class="bb-icon">📈</span> 82% signal win rate</div>
+    </div>
+
+    <!-- SIGNALS -->
+    <div class="blk">
+      <div class="sec-label">Signal Coverage</div>
+      <h2>Pairs We Cover & What You Get</h2>
+      <div class="sec-rule"></div>
+      <p style="font-size:14px;color:var(--text-mid);line-height:1.85;max-width:680px;margin-bottom:2rem">Each signal includes: entry zone, stop-loss, T1/T2 targets, timeframe, and a brief SMC/ICT rationale so you know exactly why the trade is taken.</p>
+      <div class="pair-grid">
+        <div class="pair-card"><div class="pair-hdr"><span class="pair-name">EUR/USD</span><span class="bias bull">BULLISH</span></div><h5>Why We Cover It</h5><p>World's most liquid pair. ECB vs Fed policy divergence creates large, predictable institutional moves — ideal for SMC and ICT methodology.</p><div class="divider"></div><h5>Current Macro Bias</h5><p>Bullish above 1.0720. ECB hawkish stance supports EUR. Watch 1.0800–1.0780 for ICT OTE buy entries.</p></div>
+        <div class="pair-card"><div class="pair-hdr"><span class="pair-name">XAU/USD</span><span class="bias bull">BULLISH</span></div><h5>Why We Cover It</h5><p>Gold is the single best instrument for SMC/ICT — institutional footprints are enormous and highly readable on H4/Daily charts.</p><div class="divider"></div><h5>Current Macro Bias</h5><p>Structural bull run. Central bank buying at record pace. Dips to $3,050–$2,980 are buy zones. Target $3,300.</p></div>
+        <div class="pair-card"><div class="pair-hdr"><span class="pair-name">GBP/USD</span><span class="bias neutral">NEUTRAL</span></div><h5>Why We Cover It</h5><p>Cable offers excellent intraday volatility. BoE vs Fed policy differential creates consistent swing setups across H1 and H4.</p><div class="divider"></div><h5>Current Macro Bias</h5><p>Range-bound 1.2700–1.3000. Neutral bias — wait for weekly close above 1.3000 for bullish confirmation.</p></div>
+        <div class="pair-card"><div class="pair-hdr"><span class="pair-name">USD/JPY</span><span class="bias bear">BEARISH</span></div><h5>Why We Cover It</h5><p>BoJ policy normalisation is the biggest macro theme in FX right now. The narrowing US-Japan rate differential creates high-conviction directional trades.</p><div class="divider"></div><h5>Current Macro Bias</h5><p>Bearish below 150.00. Rallies to 149–151 are sell setups toward 144–142 targets.</p></div>
+        <div class="pair-card"><div class="pair-hdr"><span class="pair-name">USD/INR</span><span class="bias neutral">NEUTRAL</span></div><h5>Why We Cover It</h5><p>Critical for Indian traders. RBI intervention patterns, FII flow seasonality, and oil import demand create predictable institutional behaviour.</p><div class="divider"></div><h5>Current Macro Bias</h5><p>RBI-managed range 82.80–84.00. Breakout above 84.50 would signal structural INR weakness.</p></div>
+        <div class="pair-card"><div class="pair-hdr"><span class="pair-name">US 30</span><span class="bias bull">BULLISH</span></div><h5>Why We Cover It</h5><p>Dow Jones CFD allows Indian traders to access US equity moves without direct market access. High liquidity, excellent for SMC order block analysis.</p><div class="divider"></div><h5>Current Macro Bias</h5><p>Bullish above 38,500. Pullbacks to 38,200–38,000 are buy setups. Resistance at 40,000 psychological level.</p></div>
+      </div>
+    </div>
+
+    <!-- HOW IT BENEFITS YOU -->
+    <div class="blk alt">
+      <div class="sec-label">For You</div>
+      <h2>How Forex Signals Benefit You</h2>
+      <div class="sec-rule"></div>
+      <div class="benefits-two">
+        <div>
+          <div class="benefit-item"><div class="bi-icon">🌍</div><div class="bi-text"><h5>Trade 24/5 Global Markets</h5><p>Unlike Indian markets that close at 3:30 PM, Forex runs from Sunday 5 PM to Friday 5 PM EST. Our signals let you trade across London, New York, and Asian sessions — diversifying your trading income streams.</p></div></div>
+          <div class="benefit-item"><div class="bi-icon">📋</div><div class="bi-text"><h5>Understand Institutional Logic</h5><p>Every Forex signal comes with the SMC/ICT rationale — the specific order block, liquidity sweep, or FVG being traded. You're not following blindly; you're learning how institutions actually move price.</p></div></div>
+          <div class="benefit-item"><div class="bi-icon">📊</div><div class="bi-text"><h5>Weekly COT Reports = Institutional Positioning</h5><p>The Commitment of Traders report shows exactly what hedge funds and commercial banks are holding. We translate this into simple weekly bias summaries — knowing which way the big money is positioned gives you a significant edge.</p></div></div>
+        </div>
+        <div>
+          <div class="benefit-item"><div class="bi-icon">💰</div><div class="bi-text"><h5>Better Risk:Reward Than Most Signal Services</h5><p>Our average Forex signal carries a 1:2.8 risk-reward ratio. This means even at a 50% win rate, you'd be profitable. At our historical 82% win rate, the compounding effect is substantial over months.</p></div></div>
+          <div class="benefit-item"><div class="bi-icon">🏦</div><div class="bi-text"><h5>Macro Context = Stronger Conviction</h5><p>Our pair economics section explains the fundamental drivers behind each pair. When you know WHY EUR/USD should be bullish (ECB hawkish, US CPI cooling), you hold winning trades longer and exit losing trades faster.</p></div></div>
+          <div class="benefit-item"><div class="bi-icon">📰</div><div class="bi-text"><h5>Trade Around News Events Safely</h5><p>Our live news section flags high-impact events (FOMC, NFP, CPI) with impact ratings and trading bias. You'll always know when NOT to trade and when the best opportunities emerge post-release.</p></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STRATEGIES -->
+    <div class="blk">
+      <div class="sec-label">Methodology</div>
+      <h2>Our 3 Trading Strategies Explained</h2>
+      <div class="sec-rule"></div>
+      <p style="font-size:14px;color:var(--text-mid);line-height:1.85;max-width:680px;margin-bottom:2rem">Understanding our methodology helps you execute signals with full confidence and context. Each strategy serves a different market condition.</p>
+      <div class="strat-tabs">
+        <button class="stab active" onclick="switchStrat('pa',this)">Price Action</button>
+        <button class="stab" onclick="switchStrat('smc',this)">Smart Money (SMC)</button>
+        <button class="stab" onclick="switchStrat('ict',this)">ICT Methodology</button>
+      </div>
+      <div class="sp active" id="sp-pa">
+        <div><h3>Price Action Trading</h3><div style="margin-bottom:1rem"><span class="stag">Pure Charts</span><span class="stag">No Indicators</span><span class="stag">Multi-Timeframe</span></div><p>Price Action reads raw candlestick data across M15, H1, H4, and D1 — no lagging indicators, no noise. Just clean structure. <strong>Benefit to you:</strong> You learn to read any market, any timeframe, independently.</p><p><strong>How it benefits signals:</strong> Price Action confirmation means entries are placed at the most precise, lowest-risk points on the chart — maximising reward while minimising stop distance.</p></div>
+        <div>
+          <div class="pillar"><h5>Candlestick Patterns</h5><p>Engulfing candles, pin bars, inside bars at key zones. Only traded at confluence — never in isolation. Each pattern signals institutional interest at that price.</p></div>
+          <div class="pillar"><h5>Support & Resistance</h5><p>Multi-touch horizontal levels, dynamic trendlines, round numbers. Levels with 3+ touches carry the highest probability for institutional reaction.</p></div>
+          <div class="pillar"><h5>Trend Structure</h5><p>Higher highs/higher lows = bullish. Lower highs/lower lows = bearish. We only trade with the dominant structure — never against the tide.</p></div>
+          <div class="pillar"><h5>Risk-Reward Discipline</h5><p>Minimum 1:2 R:R on every signal. Entries refined to nearest structure to shrink stop distance and maximise profit potential.</p></div>
+        </div>
+      </div>
+      <div class="sp" id="sp-smc">
+        <div><h3>Smart Money Concepts</h3><div style="margin-bottom:1rem"><span class="stag">Institutional Footprints</span><span class="stag">Liquidity</span><span class="stag">Order Blocks</span></div><p>SMC decodes how banks and hedge funds move price. We trade alongside institutions, not against them. <strong>Benefit to you:</strong> You stop getting stop-hunted and start understanding why "false breakouts" happen — and how to profit from them.</p><p><strong>How it benefits signals:</strong> By entering at institutional order blocks instead of retail support/resistance, our entries are far more precise with smaller stops and larger targets.</p></div>
+        <div>
+          <div class="pillar"><h5>Order Blocks</h5><p>The last bearish candle before a bullish impulse — where institutions re-entered longs. Price often returns here precisely to fuel the next leg up.</p></div>
+          <div class="pillar"><h5>Liquidity Sweeps</h5><p>Price is engineered to trigger retail stop-losses (equal highs/lows) before reversing. We enter AFTER the sweep — when the manipulation is confirmed complete.</p></div>
+          <div class="pillar"><h5>Break of Structure (BOS)</h5><p>Confirmed structural shift signals a trend change. Used as our primary entry filter — we only trade new directions after BOS is confirmed, not anticipated.</p></div>
+          <div class="pillar"><h5>Fair Value Gaps (FVG)</h5><p>3-candle imbalances created by aggressive institutional moves. Price frequently returns to fill these gaps — providing extremely precise, low-risk entry zones.</p></div>
+        </div>
+      </div>
+      <div class="sp" id="sp-ict">
+        <div><h3>ICT Methodology</h3><div style="margin-bottom:1rem"><span class="stag">Time-Based</span><span class="stag">Kill Zones</span><span class="stag">Algorithmic</span></div><p>ICT (Inner Circle Trader) aligns entries with the exact time windows when institutional order flow is highest. <strong>Benefit to you:</strong> You stop trading at random times and start understanding that the best moves happen in specific, predictable windows.</p><p><strong>How it benefits signals:</strong> Kill Zone timing means our entries are placed during maximum liquidity — tighter spreads, faster execution, and larger institutional participation driving price toward our targets.</p></div>
+        <div>
+          <div class="pillar"><h5>Kill Zones</h5><p>London (02:00–05:00 EST) and New York (07:00–10:00 EST) sessions — the highest-probability windows. We issue signals aligned with these windows specifically.</p></div>
+          <div class="pillar"><h5>Optimal Trade Entry (OTE)</h5><p>62%–79% Fibonacci retracement of a swing after a confirmed displacement move. The mathematically precise entry zone used by algorithmic institutional systems.</p></div>
+          <div class="pillar"><h5>Power of 3 (AMD)</h5><p>Accumulation → Manipulation → Distribution. After manipulation (stop hunt) is confirmed, we enter the Distribution phase — the highest R:R portion of any institutional move.</p></div>
+          <div class="pillar"><h5>Premium & Discount</h5><p>Above 50% of a swing = sell zone. Below 50% = buy zone. Aligns your bias with institutional preference — you only buy cheap and sell expensive in structural terms.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NEWS TAB -->
+    <div class="blk alt">
+      <div class="sec-label">Market Intelligence</div>
+      <h2>Live Market News & Economic Events</h2>
+      <div class="sec-rule"></div>
+      <div class="news-bar">
+        <div class="live-badge"><span class="ldot"></span>Live — Apr 10, 2026</div>
+        <div class="nfilter">
+          <button class="nfbtn active" onclick="fNews('all',this)">All</button>
+          <button class="nfbtn" onclick="fNews('high',this)">High Impact</button>
+          <button class="nfbtn" onclick="fNews('usd',this)">USD</button>
+          <button class="nfbtn" onclick="fNews('eur',this)">EUR</button>
+          <button class="nfbtn" onclick="fNews('gold',this)">GOLD</button>
+        </div>
+      </div>
+      <div class="news-list" id="nl">
+        <div class="news-item" data-i="high" data-c="usd"><div class="nimp ih"></div><div class="nbody"><div class="nmeta"><span class="ntime">08:30 EST</span><span class="ncur">USD</span><span class="nimp-l lh">HIGH IMPACT</span></div><div class="ntitle">US CPI (Core) YoY — March 2026</div><div class="ndesc">Core Consumer Price Index measures price changes ex-food & energy. A miss below forecast = USD bearish, increases probability of Fed rate cuts. Directly impacts all USD pairs and Gold.</div><span class="nresult rr">Actual: 3.1% | Forecast: 3.2% → USD mildly bearish, Gold supportive</span></div></div>
+        <div class="news-item" data-i="high" data-c="usd"><div class="nimp ih"></div><div class="nbody"><div class="nmeta"><span class="ntime">10:00 EST</span><span class="ncur">USD</span><span class="nimp-l lh">HIGH IMPACT</span></div><div class="ntitle">FOMC Member Williams Speech</div><div class="ndesc">Fed Governor Williams expected to comment on rate path following March CPI. Any dovish language (hinting cuts coming sooner) = immediate USD selloff and Gold/EUR rally.</div><span class="nresult rn">Pending — Watch for rate cut language</span></div></div>
+        <div class="news-item" data-i="high" data-c="gold"><div class="nimp ih"></div><div class="nbody"><div class="nmeta"><span class="ntime">All Day</span><span class="ncur">GOLD</span><span class="nimp-l lh">HIGH IMPACT</span></div><div class="ntitle">Gold Hits New ATH at $3,230 — Geopolitical Tensions + Soft CPI</div><div class="ndesc">XAU/USD surged past $3,200 as Middle East tensions escalated and DXY softened post-CPI. Central bank gold demand at record pace. SMC traders watching $3,180 as key support for continuation to $3,300.</div><span class="nresult rb">Bullish — Structure intact, target $3,300</span></div></div>
+        <div class="news-item" data-i="med" data-c="eur"><div class="nimp im"></div><div class="nbody"><div class="nmeta"><span class="ntime">05:00 EST</span><span class="ncur">EUR</span><span class="nimp-l lm">MEDIUM IMPACT</span></div><div class="ntitle">ECB Meeting Minutes — Hawkish Tone Maintained</div><div class="ndesc">March ECB minutes showed majority favour holding rates steady in Q2 2026. Only 2 members pushed for a cut. Hawkish lean provides moderate support for EUR vs USD and GBP.</div><span class="nresult rb">Hawkish → EUR/USD pushed above 1.0850</span></div></div>
+        <div class="news-item" data-i="med" data-c="usd"><div class="nimp im"></div><div class="nbody"><div class="nmeta"><span class="ntime">08:30 EST</span><span class="ncur">USD</span><span class="nimp-l lm">MEDIUM IMPACT</span></div><div class="ntitle">US Initial Jobless Claims — Better Than Expected</div><div class="ndesc">Weekly unemployment filings: 215K vs 220K forecast. Resilient labour market limits Fed's ability to cut. Mild USD support — watch for short-term DXY bounce that could pressure Gold and EUR/USD.</div><span class="nresult rb">215K vs 220K forecast → Mild USD bullish</span></div></div>
+        <div class="news-item" data-i="med" data-c="gold"><div class="nimp im"></div><div class="nbody"><div class="nmeta"><span class="ntime">14:00 EST</span><span class="ncur">GOLD</span><span class="nimp-l lm">MEDIUM IMPACT</span></div><div class="ntitle">WGC: Central Banks Bought 290 Tonnes of Gold in Q1 2026</div><div class="ndesc">World Gold Council Q1 report: China (65T), India (22T), Turkey (18T) led purchases. Structural floor for gold strengthening. Long-term bull thesis remains intact regardless of short-term USD strength.</div><span class="nresult rb">Bullish structural support — long-term gold floor rising</span></div></div>
+      </div>
+      <p style="margin-top:1.25rem;padding:1rem;background:rgba(201,145,42,0.07);border:1px solid rgba(201,145,42,0.2);border-radius:6px;font-size:11px;color:var(--text-light);line-height:1.6">⚠ News is for educational and informational purposes only. All trading decisions should be made based on your own analysis and risk tolerance. Past outcomes are not indicative of future results.</p>
+    </div>
+
+    <div class="inner-cta">
+      <h2>Access 12+ Pairs of Forex Signals</h2>
+      <p>Pro Trader plan includes all Forex signals, weekly COT reports, pair economics, and live news — alongside full Indian market coverage.</p>
+      <div class="cta-btns">
+        <button class="btn-gold" onclick="go('pricing')">View Pro Trader Plan</button>
+        <button class="btn-ghost" onclick="go('contact')">Request a Free Sample Signal</button>
+      </div>
+    </div>
+    <footer><p>© 2025 M Reader%. All rights reserved.</p><p class="footer-disc">Disclaimer: Forex trading involves substantial risk. Past signal win rates do not guarantee future results.</p></footer>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     PAGE: BOTS
+════════════════════════════════════════ -->
+<div class="page" id="pg-bots">
+  <div class="inner-wrap">
+    <div class="pg-hero">
+      <button class="back-btn" onclick="goHome()">← Back to Home</button>
+      <div class="pg-label">Algorithmic Trading</div>
+      <h1>Trading Bots That Work While You Sleep</h1>
+      <p class="pg-hero-sub">Fully automated, 24/5 algorithmic bots — backtested over 3 years on real price data, live on cTrader since 2023. Your funds stay in your account. We just send the instructions.</p>
+    </div>
+
+    <div class="benefit-band">
+      <div class="bb-item"><span class="bb-icon">🤖</span> 24/5 automated execution</div>
+      <div class="bb-item"><span class="bb-icon">📈</span> 248% ROI on XAU/USD</div>
+      <div class="bb-item"><span class="bb-icon">🔒</span> Funds always in your account</div>
+      <div class="bb-item"><span class="bb-icon">🛡️</span> Auto stop-loss every trade</div>
+      <div class="bb-item"><span class="bb-icon">📞</span> 1-on-1 onboarding call included</div>
+    </div>
+
+    <!-- WHAT IS A TRADING BOT -->
+    <div class="blk">
+      <div class="sec-label">Understanding Bots</div>
+      <h2>What Is a Trading Bot & How Does It Work?</h2>
+      <div class="sec-rule"></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start">
+        <div>
+          <p style="font-size:14px;color:var(--text-mid);line-height:1.85;margin-bottom:1rem">A trading bot is an algorithm — a computer program — that scans the market, identifies setups based on pre-coded rules, and executes trades automatically. It doesn't get tired, emotional, or distracted. It follows the rules 100% of the time.</p>
+          <p style="font-size:14px;color:var(--text-mid);line-height:1.85;margin-bottom:1rem">Our bots are built on the Fibonacci swing structure and ICT Kill Zone timing strategies that our analysts use manually for Forex signals — translated into code that runs 24 hours a day, 5 days a week.</p>
+          <p style="font-size:14px;color:var(--text-mid);line-height:1.85">The bot connects to your personal broker account via the cTrader API. <strong style="color:var(--brown)">Your funds never leave your account.</strong> We cannot withdraw or transfer your money — the bot only executes buy/sell orders on your behalf.</p>
+        </div>
+        <div class="feat-grid" style="margin-top:0">
+          <div class="feat"><h4>🚫 No Emotional Trading</h4><p>The bot never fears missing a trade, never revenge trades after a loss, and never over-sizes a position due to overconfidence. Pure rule-based execution.</p></div>
+          <div class="feat"><h4>⏰ 24/5 Execution</h4><p>The London Open at 2 AM EST? New York Open at 7 AM? The bot is awake for every Kill Zone, every session, without you needing to be at a screen.</p></div>
+          <div class="feat"><h4>🛡️ Built-In Risk Management</h4><p>Stop-loss is set automatically on every single trade. Maximum risk per trade is configured at setup — the bot can never exceed your defined risk parameters.</p></div>
+          <div class="feat"><h4>📊 Fully Transparent</h4><p>Every trade is logged in your cTrader account. You see every entry, exit, P&L, and drawdown in real time. Nothing hidden, nothing opaque.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HOW IT BENEFITS YOU -->
+    <div class="blk alt">
+      <div class="sec-label">For You</div>
+      <h2>How a Trading Bot Benefits You Specifically</h2>
+      <div class="sec-rule"></div>
+      <div class="benefits-two">
+        <div>
+          <div class="benefit-item"><div class="bi-icon">😴</div><div class="bi-text"><h5>Earn While You Sleep — Literally</h5><p>The Fibswing Bot's best-performing setups often occur during London Open (2–5 AM EST) — a time most Indian traders are asleep. The bot captures these high-probability institutional moves automatically, depositing profits into your account before you wake up.</p></div></div>
+          <div class="benefit-item"><div class="bi-icon">🧠</div><div class="bi-text"><h5>Remove Emotional Decision-Making</h5><p>Research shows that 80% of retail trading losses come from emotional decisions — exiting winners too early, holding losers too long, over-trading after a loss. The bot eliminates all of these. It follows the algorithm. Every. Single. Time.</p></div></div>
+          <div class="benefit-item"><div class="bi-icon">💼</div><div class="bi-text"><h5>Diversify Beyond Indian Markets</h5><p>The bot runs on XAU/USD and US 30 — both global instruments uncorrelated with NIFTY's daily moves. This gives your portfolio exposure to global market opportunities that don't depend on what the Sensex does each day.</p></div></div>
+        </div>
+        <div>
+          <div class="benefit-item"><div class="bi-icon">📈</div><div class="bi-text"><h5>Backtested — Not Just Promised</h5><p>We don't ask you to trust promises. The Fibswing Bot has a publicly available backtesting report from cTrader covering Jan 2023–Apr 2026. You can verify every trade, every drawdown, and every monthly return independently before buying the license.</p></div></div>
+          <div class="benefit-item"><div class="bi-icon">🔧</div><div class="bi-text"><h5>Fully Supported Setup — Not a DIY Project</h5><p>Every bot license includes a 1-on-1 onboarding call with our team. We walk you through broker selection, account setup, capital allocation, and bot installation. You don't need any coding knowledge. If you can follow instructions, you can run this bot.</p></div></div>
+          <div class="benefit-item"><div class="bi-icon">♾️</div><div class="bi-text"><h5>Lifetime Algorithm Updates</h5><p>Markets evolve. When we improve the algorithm — better entry logic, tighter risk management — all licensed users receive the update at no extra cost. Your bot stays optimised without any effort from your side.</p></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOT PERFORMANCE -->
+    <div class="blk dark">
+      <div class="sec-label" style="color:var(--gold)">Live Performance</div>
+      <h2>Our Bots — Live Data</h2>
+      <div class="sec-rule"></div>
+      <p style="font-size:14px;color:rgba(255,253,247,0.45);line-height:1.85;max-width:680px;margin-bottom:2rem">All performance data sourced from cTrader backtesting reports. Starting capital $10,000 for all tests. Period: Jan 2023 – Apr 2026.</p>
+      <div class="bot-grid">
+        <!-- XAU -->
+        <div class="bot-card">
+          <div class="bc-hdr"><div class="btag live">Live</div><span style="font-size:11px;color:rgba(255,253,247,0.28)">cTrader</span></div>
+          <h3>Fibswing — XAU/USD</h3>
+          <p>Gold scalping bot using ICT OTE entries within Fibonacci retracements. Capitalises on gold's high-volatility institutional swings with precision timing and tight risk management.</p>
+          <div class="bot-stats"><div><div class="bsv">248%</div><div class="bsl">Total ROI</div></div><div><div class="bsv">99.7%</div><div class="bsl">Win Rate</div></div><div><div class="bsv">384</div><div class="bsl">Trades</div></div></div>
+          <button class="expand-btn" onclick="toggleRp('xau')">View Full Report <span class="chev" id="chev-xau">▼</span></button>
+          <div class="rp" id="rp-xau">
+            <div class="rp-tabs">
+              <div class="rtab active" onclick="switchRc('xau','ov',this)">Overview</div>
+              <div class="rtab" onclick="switchRc('xau','mo',this)">Monthly</div>
+              <div class="rtab" onclick="switchRc('xau','req',this)">Full Report</div>
+            </div>
+            <div class="rc active" id="xau-ov">
+              <div class="roi-row"><div class="roi-cell"><div class="roi-v">+12.79%</div><div class="roi-l">6 Months</div></div><div class="roi-cell"><div class="roi-v">+42.42%</div><div class="roi-l">1 Year</div></div><div class="roi-cell"><div class="roi-v">+248%</div><div class="roi-l">3 Years</div></div></div>
+              <div class="kpis"><div class="kpi"><div class="kv g">+248%</div><div class="kl">Total ROI</div></div><div class="kpi"><div class="kv">$24,825</div><div class="kl">Net Profit</div></div><div class="kpi"><div class="kv g">99.7%</div><div class="kl">Win Rate</div></div><div class="kpi"><div class="kv">384</div><div class="kl">Trades</div></div><div class="kpi"><div class="kv">386.67</div><div class="kl">Profit Factor</div></div><div class="kpi"><div class="kv">$79.79</div><div class="kl">Avg Trade</div></div></div>
+              <div class="rfoot"><span style="color:rgba(255,253,247,0.35)">Capital:</span><span>$10,000 → $40,638</span>&nbsp;&nbsp;<span style="color:rgba(255,253,247,0.35)">Wins:</span><span>383/384</span>&nbsp;&nbsp;<span style="color:rgba(255,253,247,0.35)">Period:</span><span>Jan 2023–Apr 2026</span></div>
+            </div>
+            <div class="rc" id="xau-mo">
+              <div style="font-size:11px;color:rgba(255,253,247,0.3);letter-spacing:1px;text-transform:uppercase;margin-bottom:1rem">Recent Monthly Performance</div>
+              <div class="roi-row"><div class="roi-cell"><div class="roi-v" style="font-size:1rem">+8.2%</div><div class="roi-l">Jan 26</div></div><div class="roi-cell"><div class="roi-v" style="font-size:1rem">+5.4%</div><div class="roi-l">Feb 26</div></div><div class="roi-cell"><div class="roi-v" style="font-size:1rem">+3.1%</div><div class="roi-l">Mar 26</div></div><div class="roi-cell"><div class="roi-v" style="font-size:1rem">+4.7%</div><div class="roi-l">Q3 '25</div></div><div class="roi-cell"><div class="roi-v" style="font-size:1rem">+11.3%</div><div class="roi-l">Q2 '25</div></div></div>
+            </div>
+            <div class="rc" id="xau-req">
+              <div class="req-box"><h4>Request Full cTrader Report</h4><p>Complete backtesting report with equity curve, monthly P&L table, and full trade log — emailed within 24 hours.</p><div class="req-form"><input type="text" placeholder="Your Name" id="rn-xau"/><input type="email" placeholder="Email Address" id="re-xau"/><textarea placeholder="Any questions about the bot?" id="rm-xau"></textarea><button class="req-btn" onclick="sendReq('xau')">Request XAU/USD Report →</button><div class="req-ok" id="rok-xau">✓ Sent! Report will arrive within 24 hours.</div></div></div>
+            </div>
+          </div>
+        </div>
+        <!-- US30 -->
+        <div class="bot-card">
+          <div class="bc-hdr"><div class="btag live">Live</div><span style="font-size:11px;color:rgba(255,253,247,0.28)">cTrader</span></div>
+          <h3>Fibswing — US 30</h3>
+          <p>Dow Jones swing bot using Fibonacci levels and ICT AMD cycle timing. Targets 80–150 point institutional moves with algorithmic position management and automatic trailing exits.</p>
+          <div class="bot-stats"><div><div class="bsv">458%</div><div class="bsl">Total ROI</div></div><div><div class="bsv">97.3%</div><div class="bsl">Win Rate</div></div><div><div class="bsv">411</div><div class="bsl">Trades</div></div></div>
+          <button class="expand-btn" onclick="toggleRp('us30')">View Full Report <span class="chev" id="chev-us30">▼</span></button>
+          <div class="rp" id="rp-us30">
+            <div class="rp-tabs">
+              <div class="rtab active" onclick="switchRc('us30','ov',this)">Overview</div>
+              <div class="rtab" onclick="switchRc('us30','mo',this)">Monthly</div>
+              <div class="rtab" onclick="switchRc('us30','req',this)">Full Report</div>
+            </div>
+            <div class="rc active" id="us30-ov">
+              <div class="roi-row"><div class="roi-cell"><div class="roi-v">+33.7%</div><div class="roi-l">6 Months</div></div><div class="roi-cell"><div class="roi-v">+78.57%</div><div class="roi-l">1 Year</div></div><div class="roi-cell"><div class="roi-v">+458%</div><div class="roi-l">3 Years</div></div></div>
+              <div class="kpis"><div class="kpi"><div class="kv g">+458%</div><div class="kl">Total ROI</div></div><div class="kpi"><div class="kv">$45,814</div><div class="kl">Net Profit</div></div><div class="kpi"><div class="kv g">97.3%</div><div class="kl">Win Rate</div></div><div class="kpi"><div class="kv">411</div><div class="kl">Trades</div></div><div class="kpi"><div class="kv">46.31</div><div class="kl">Profit Factor</div></div><div class="kpi"><div class="kv">$134.66</div><div class="kl">Avg Trade</div></div></div>
+              <div class="rfoot"><span style="color:rgba(255,253,247,0.35)">Capital:</span><span>$10,000 → $65,344</span>&nbsp;&nbsp;<span style="color:rgba(255,253,247,0.35)">Wins:</span><span>400/411</span>&nbsp;&nbsp;<span style="color:rgba(255,253,247,0.35)">Period:</span><span>Jan 2023–Apr 2026</span></div>
+            </div>
+            <div class="rc" id="us30-mo">
+              <div style="font-size:11px;color:rgba(255,253,247,0.3);letter-spacing:1px;text-transform:uppercase;margin-bottom:1rem">Recent Monthly Performance</div>
+              <div class="roi-row"><div class="roi-cell"><div class="roi-v" style="font-size:1rem">+15.1%</div><div class="roi-l">Jan 26</div></div><div class="roi-cell"><div class="roi-v" style="font-size:1rem">+9.3%</div><div class="roi-l">Feb 26</div></div><div class="roi-cell"><div class="roi-v" style="font-size:1rem">+6.4%</div><div class="roi-l">Mar 26</div></div><div class="roi-cell"><div class="roi-v" style="font-size:1rem">+18.7%</div><div class="roi-l">Q3 '25</div></div><div class="roi-cell"><div class="roi-v" style="font-size:1rem">+14.2%</div><div class="roi-l">Q2 '25</div></div></div>
+            </div>
+            <div class="rc" id="us30-req">
+              <div class="req-box"><h4>Request Full cTrader Report</h4><p>Complete backtesting report with equity curve, drawdown analysis, and full trade history — delivered within 24 hours.</p><div class="req-form"><input type="text" placeholder="Your Name" id="rn-us30"/><input type="email" placeholder="Email Address" id="re-us30"/><textarea placeholder="Any questions?" id="rm-us30"></textarea><button class="req-btn" onclick="sendReq('us30')">Request US30 Report →</button><div class="req-ok" id="rok-us30">✓ Sent! Report will arrive within 24 hours.</div></div></div>
+            </div>
+          </div>
+        </div>
+        <!-- Coming Soon -->
+        <div class="bot-card"><div class="bc-hdr"><div class="btag soon">Coming Soon</div><span style="font-size:11px;color:rgba(255,253,247,0.28)">MT5</span></div><h3>NiftyScalper Bot</h3><p>High-frequency scalping bot for NIFTY & BankNIFTY F&O. Targets 5–15 point moves with tight SL — optimised for Indian market hours (09:15–15:30 IST).</p><div class="bot-stats"><div><div class="bsv">—</div><div class="bsl">ROI</div></div><div><div class="bsv">—</div><div class="bsl">Win Rate</div></div><div><div class="bsv">2025</div><div class="bsl">Launch</div></div></div></div>
+        <div class="bot-card"><div class="bc-hdr"><div class="btag soon">Coming Soon</div><span style="font-size:11px;color:rgba(255,253,247,0.28)">MT4/MT5</span></div><h3>ForexTrend Bot</h3><p>Trend-following bot covering 8 major Forex pairs. ATR-based position sizing to ride extended institutional moves across trending market phases.</p><div class="bot-stats"><div><div class="bsv">—</div><div class="bsl">ROI</div></div><div><div class="bsv">—</div><div class="bsl">Win Rate</div></div><div><div class="bsv">2025</div><div class="bsl">Launch</div></div></div></div>
+      </div>
+    </div>
+
+    <!-- SETUP GUIDE -->
+    <div class="blk">
+      <div class="sec-label">Getting Started</div>
+      <h2>How to Get Up & Running in 5 Steps</h2>
+      <div class="sec-rule"></div>
+      <div class="steps" style="max-width:650px">
+        <div class="step"><div class="step-n">1</div><div class="step-body"><h5>Purchase the Bot License (₹7,999/yr)</h5><p>Select the Bot License from our pricing page and complete payment via UPI or card. Confirmation arrives within minutes with your license key and next steps.</p></div></div>
+        <div class="step"><div class="step-n">2</div><div class="step-body"><h5>Book Your 1-on-1 Onboarding Call</h5><p>We schedule a 30–45 minute video call to walk you through everything — broker selection, account opening, recommended starting capital ($500–$1,000), and risk configuration tailored to your comfort level.</p></div></div>
+        <div class="step"><div class="step-n">3</div><div class="step-body"><h5>Open a cTrader Broker Account</h5><p>We recommend IC Markets or Pepperstone for Indian clients — both are regulated, have low spreads critical for bot profitability, and accept Indian bank transfers. Takes 1–2 days to verify.</p></div></div>
+        <div class="step"><div class="step-n">4</div><div class="step-body"><h5>Install the Bot (15 Minutes)</h5><p>We send you the .algo bot file and a step-by-step visual installation guide. You drag and drop into cTrader. We verify your setup is correct during the onboarding call — so you go live with confidence.</p></div></div>
+        <div class="step"><div class="step-n">5</div><div class="step-body"><h5>Go Live & Monitor Your Dashboard</h5><p>The bot runs 24/5 completely automatically. You receive a live cTrader dashboard link to monitor all open trades and P&L in real time. Monthly performance summaries emailed every month-end.</p></div></div>
+      </div>
+    </div>
+
+    <div class="inner-cta">
+      <h2>Let the Bot Trade. You Live Your Life.</h2>
+      <p>The Fibswing Bot has delivered 248%+ ROI on XAU/USD since 2023. Full access with your Bot License — ₹7,999/year including lifetime updates and onboarding support.</p>
+      <div class="cta-btns">
+        <button class="btn-gold" onclick="go('pricing')">Buy Bot License — ₹7,999/yr</button>
+        <button class="btn-ghost" onclick="go('contact')">Request a Demo First</button>
+      </div>
+    </div>
+    <footer><p>© 2025 M Reader%. All rights reserved.</p><p class="footer-disc">Disclaimer: Bot performance is based on historical backtesting data. Past performance does not guarantee future results. All trading involves risk of capital loss.</p></footer>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     PAGE: PRICING
+════════════════════════════════════════ -->
+<div class="page" id="pg-pricing">
+  <div class="inner-wrap">
+    <div class="pg-hero">
+      <button class="back-btn" onclick="goHome()">← Back to Home</button>
+      <div class="pg-label">Transparent Pricing</div>
+      <h1>Simple, Honest Plans for Every Trader</h1>
+      <p class="pg-hero-sub">No hidden fees. No lock-in periods. No surprise charges. Three clear plans built around your trading level and goals.</p>
+    </div>
+
+    <div class="blk">
+      <div class="price-grid">
+        <div class="pcard">
+          <h3>Starter</h3>
+          <div class="price">₹999<span style="font-size:1.1rem;font-weight:400;color:var(--text-light)">/mo</span></div>
+          <div class="psub">For beginners & part-time traders</div>
+          <ul><li>Indian Equity Calls (5/day)</li><li>Weekly Pre-Market Report</li><li>Telegram Signal Channel</li><li>Email Support (48hr response)</li></ul>
+          <button class="pbtn pbtn-out" onclick="go('contact')">Get Started</button>
+        </div>
+        <div class="pcard feat">
+          <div class="fbadge">MOST POPULAR</div>
+          <h3>Pro Trader</h3>
+          <div class="price">₹2,499<span style="font-size:1.1rem;font-weight:400;color:rgba(255,253,247,0.4)">/mo</span></div>
+          <div class="psub">Full Indian + Global Forex access</div>
+          <ul><li>All Indian Equity Signals (unlimited)</li><li>F&O Strategies (NIFTY/BankNIFTY)</li><li>Forex Signals (12+ pairs)</li><li>Weekly COT Institutional Reports</li><li>Monthly Portfolio Review Session</li><li>Priority WhatsApp Support</li></ul>
+          <button class="pbtn pbtn-gold" onclick="go('contact')">Get Started</button>
+        </div>
+        <div class="pcard">
+          <h3>Bot License</h3>
+          <div class="price">₹7,999<span style="font-size:1.1rem;font-weight:400;color:var(--text-light)">/yr</span></div>
+          <div class="psub">Fibswing Bot — full automated access</div>
+          <ul><li>Fibswing Bot (XAU/USD + US 30)</li><li>cTrader Multi-Broker Integration</li><li>Auto Risk & Position Management</li><li>Live Performance Dashboard</li><li>1-on-1 Onboarding Call</li><li>Lifetime Algorithm Updates</li></ul>
+          <button class="pbtn pbtn-dark" onclick="go('contact')">Buy Bot License</button>
+        </div>
+      </div>
+
+      <!-- COMPARISON TABLE -->
+      <div style="margin-top:4rem">
+        <div class="sec-label">Plan Comparison</div>
+        <h2 class="sec-title">Everything at a Glance</h2>
+        <div class="sec-rule"></div>
+        <div style="overflow-x:auto;margin-top:1.5rem">
+          <table class="info-table">
+            <thead><tr><th>Feature</th><th style="text-align:center">Starter ₹999/mo</th><th style="text-align:center;background:rgba(201,145,42,0.15);color:var(--gold)">Pro Trader ₹2,499/mo</th><th style="text-align:center">Bot License ₹7,999/yr</th></tr></thead>
+            <tbody>
+              <tr><td>Indian Equity Calls</td><td style="text-align:center">5/day</td><td style="text-align:center;background:rgba(201,145,42,0.04)">Unlimited</td><td style="text-align:center" class="cross">—</td></tr>
+              <tr><td>F&O Strategies (NIFTY/BankNIFTY)</td><td style="text-align:center" class="cross">—</td><td style="text-align:center;background:rgba(201,145,42,0.04)" class="check">✓</td><td style="text-align:center" class="cross">—</td></tr>
+              <tr><td>Forex Signals (12+ pairs)</td><td style="text-align:center" class="cross">—</td><td style="text-align:center;background:rgba(201,145,42,0.04)" class="check">✓</td><td style="text-align:center" class="cross">—</td></tr>
+              <tr><td>Weekly COT Institutional Report</td><td style="text-align:center" class="cross">—</td><td style="text-align:center;background:rgba(201,145,42,0.04)" class="check">✓</td><td style="text-align:center" class="cross">—</td></tr>
+              <tr><td>Fibswing Bot (XAU/USD + US 30)</td><td style="text-align:center" class="cross">—</td><td style="text-align:center;background:rgba(201,145,42,0.04)" class="cross">—</td><td style="text-align:center" class="check">✓</td></tr>
+              <tr><td>Monthly Portfolio Review</td><td style="text-align:center" class="cross">—</td><td style="text-align:center;background:rgba(201,145,42,0.04)" class="check">Monthly</td><td style="text-align:center" class="cross">—</td></tr>
+              <tr><td>WhatsApp Support</td><td style="text-align:center" class="cross">—</td><td style="text-align:center;background:rgba(201,145,42,0.04)" class="check">Priority</td><td style="text-align:center" class="check">Priority</td></tr>
+              <tr><td>Weekly Market Reports</td><td style="text-align:center" class="check">✓</td><td style="text-align:center;background:rgba(201,145,42,0.04)" class="check">✓</td><td style="text-align:center" class="cross">—</td></tr>
+              <tr><td>1-on-1 Onboarding Call</td><td style="text-align:center" class="cross">—</td><td style="text-align:center;background:rgba(201,145,42,0.04)" class="cross">—</td><td style="text-align:center" class="check">✓</td></tr>
+              <tr><td>Live Bot Performance Dashboard</td><td style="text-align:center" class="cross">—</td><td style="text-align:center;background:rgba(201,145,42,0.04)" class="cross">—</td><td style="text-align:center" class="check">✓</td></tr>
+              <tr><td>Lifetime Algorithm Updates</td><td style="text-align:center" class="cross">—</td><td style="text-align:center;background:rgba(201,145,42,0.04)" class="cross">—</td><td style="text-align:center" class="check">✓</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div style="margin-top:4rem">
+        <div class="sec-label">FAQ</div>
+        <h2 class="sec-title">Common Questions</h2>
+        <div class="sec-rule"></div>
+        <div class="feat-grid" style="margin-top:1.5rem">
+          <div class="feat"><h4>Is there a free trial?</h4><p>No trial, but you can request a free sample signal on the Contact page before subscribing. We're confident in signal quality — we just want you to experience it first.</p></div>
+          <div class="feat"><h4>Can I cancel anytime?</h4><p>Monthly plans (Starter, Pro) cancel with zero penalties — no lock-in, no questions asked. The Bot License is annual but includes lifetime algorithm updates for the full year.</p></div>
+          <div class="feat"><h4>What broker do I need for the bot?</h4><p>The bot runs on cTrader. We recommend IC Markets or Pepperstone — both are regulated, India-accessible, and have spreads optimised for the Fibswing strategy.</p></div>
+          <div class="feat"><h4>Can I run both a plan and a bot?</h4><p>Yes — many clients subscribe to Pro Trader for daily signals AND use the Fibswing Bot for passive automated income. They complement each other well.</p></div>
+          <div class="feat"><h4>What payment methods work?</h4><p>UPI, Net Banking, Debit/Credit Card via Razorpay. International payments via Wise or direct bank transfer for Bot License purchases.</p></div>
+          <div class="feat"><h4>How quickly do I get access after paying?</h4><p>Signal plan access (Telegram invite) within 2–4 hours of payment confirmation. Bot license and onboarding call scheduled within 24 hours.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="inner-cta">
+      <h2>Choose Your Plan. Start Today.</h2>
+      <p>Contact us to subscribe — we activate your access manually within hours and are available to answer any questions before you commit.</p>
+      <div class="cta-btns"><button class="btn-gold" onclick="go('contact')">Contact Us to Subscribe</button></div>
+    </div>
+    <footer><p>© 2025 M Reader%. All rights reserved.</p><p class="footer-disc">Disclaimer: All plans are advisory/educational in nature. Trading involves risk. Please trade responsibly.</p></footer>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     PAGE: CONTACT
+════════════════════════════════════════ -->
+<div class="page" id="pg-contact">
+  <div class="inner-wrap">
+    <div class="pg-hero">
+      <button class="back-btn" onclick="goHome()">← Back to Home</button>
+      <div class="pg-label">Get In Touch</div>
+      <h1>Let's Talk Trading</h1>
+      <p class="pg-hero-sub">Questions about plans, bots, or signals? We're based in Chennai and respond within 24 hours across all channels — usually much faster.</p>
+    </div>
+
+    <div class="blk" style="background:#F8F4ED">
+      <div class="contact-grid">
+        <div>
+          <div class="sec-label">Contact Details</div>
+          <h2 style="font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--brown);margin-bottom:1rem">Reach Our Team</h2>
+          <div class="sec-rule"></div>
+          <p style="font-size:14px;color:var(--text-mid);line-height:1.85;margin-bottom:1.5rem">Whether you want to subscribe, have pre-sale questions, or need support — we're available across multiple channels. All enquiries treated with full privacy and no sales pressure.</p>
+          <div class="cdet"><div class="cico">📧</div><span>info@mreaderpercent.com</span></div>
+          <div class="cdet"><div class="cico">💬</div><span>Telegram: @MReaderPercent</span></div>
+          <div class="cdet"><div class="cico">📱</div><span>WhatsApp: Available to Pro & Bot clients</span></div>
+          <div class="cdet"><div class="cico">📍</div><span>Chennai, Tamil Nadu, India</span></div>
+          <div class="cdet"><div class="cico">🕒</div><span>Mon–Fri: 9:00 AM – 6:00 PM IST</span></div>
+          <div style="margin-top:2rem;padding:1.25rem;background:#fff;border:1px solid var(--cream-border);border-radius:8px;border-left:3px solid var(--gold)">
+            <h4 style="font-size:13px;font-weight:600;color:var(--brown);margin-bottom:0.6rem">Typical Response Times</h4>
+            <p style="font-size:12px;color:var(--text-light);line-height:1.7">Telegram DM — within 2 hours on trading days<br>Email — within 24 hours (weekdays)<br>WhatsApp (Pro/Bot clients) — same day, priority</p>
+          </div>
+        </div>
+        <div>
+          <div class="sec-label">Send a Message</div>
+          <h2 style="font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--brown);margin-bottom:1rem">Contact Form</h2>
+          <div class="sec-rule"></div>
+          <div class="cform" style="margin-top:1rem">
+            <input type="text" id="cf-name" placeholder="Your Full Name" required/>
+            <input type="email" id="cf-email" placeholder="Email Address" required/>
+            <input type="tel" id="cf-phone" placeholder="WhatsApp / Phone Number"/>
+            <select id="cf-int">
+              <option value="">I'm interested in...</option>
+              <option>Starter Plan (₹999/mo)</option>
+              <option>Pro Trader Plan (₹2,499/mo)</option>
+              <option>Fibswing Bot License (₹7,999/yr)</option>
+              <option>Free Sample Signal</option>
+              <option>General Enquiry</option>
+            </select>
+            <textarea id="cf-msg" placeholder="Your message or question..."></textarea>
+            <button onclick="submitContact()">Send Message →</button>
+            <p id="cf-ok" style="font-size:13px;color:var(--gold);display:none;text-align:center;padding:0.5rem">✓ Message received! We'll be in touch within 24 hours.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <svg viewBox="0 0 180 36" height="28" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:0.85rem">
+        <polyline points="4,28 12,18 20,22 30,10 40,14 50,4" fill="none" stroke="#C9912A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="50" cy="4" r="3" fill="#C9912A"/>
+        <text x="64" y="13" font-family="Georgia,serif" font-size="7.5" fill="rgba(201,145,42,0.55)" letter-spacing="2.5">M READER</text>
+        <text x="63" y="29" font-family="Georgia,serif" font-size="18" font-weight="700" fill="#FFFDF7" letter-spacing="-0.5">Market<tspan fill="#C9912A">%</tspan></text>
+      </svg>
+      <p>© 2025 M Reader%. All rights reserved. &nbsp;|&nbsp; <a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Disclaimer</a></p>
+      <p class="footer-disc">Trading in equities, derivatives, and Forex involves substantial risk of loss. Past performance is not indicative of future results. M Reader% does not guarantee profits. Please consult a SEBI-registered investment advisor before making any investment decisions.</p>
+    </footer>
+  </div>
+</div>
+
+<script>
+// ── ROUTING ──
+const PAGES=['home','indian','forex','bots','pricing','contact'];
+function go(id){
+  PAGES.forEach(p=>{const el=document.getElementById('pg-'+p);if(el)el.classList.remove('active');});
+  const t=document.getElementById('pg-'+id);
+  if(t){t.classList.add('active');window.scrollTo({top:0,behavior:'smooth'});}
+}
+function goHome(){go('home');}
+
+// ── PERFORMANCE TABS ──
+function switchPerf(id,el){
+  document.querySelectorAll('.ptab').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('.perf-content').forEach(c=>c.classList.remove('active'));
+  document.getElementById('pc-'+id).classList.add('active');
+}
+
+// ── FOREX STRATEGY TABS ──
+function switchStrat(id,el){
+  document.querySelectorAll('.stab').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('.sp').forEach(p=>p.classList.remove('active'));
+  document.getElementById('sp-'+id).classList.add('active');
+}
+
+// ── NEWS FILTER ──
+function fNews(f,el){
+  document.querySelectorAll('.nfbtn').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('#nl .news-item').forEach(item=>{
+    if(f==='all'){item.style.display='flex';return;}
+    if(f==='high'){item.style.display=item.dataset.i==='high'?'flex':'none';return;}
+    item.style.display=item.dataset.c===f?'flex':'none';
+  });
+}
+
+// ── BOT REPORT TOGGLE ──
+function toggleRp(b){
+  const p=document.getElementById('rp-'+b),c=document.getElementById('chev-'+b);
+  p.classList.toggle('open');c.classList.toggle('open');
+}
+function switchRc(bot,tab,el){
+  document.querySelectorAll('#rp-'+bot+' .rtab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('#rp-'+bot+' .rc').forEach(c=>c.classList.remove('active'));
+  document.getElementById(bot+'-'+tab).classList.add('active');
+}
+
+// ── REPORT REQUEST ──
+function sendReq(b){
+  const n=document.getElementById('rn-'+b).value,e=document.getElementById('re-'+b).value;
+  if(!n||!e){alert('Please enter your name and email.');return;}
+  document.getElementById('rok-'+b).style.display='block';
+  document.getElementById('rn-'+b).value='';
+  document.getElementById('re-'+b).value='';
+  document.getElementById('rm-'+b).value='';
+  setTimeout(()=>{document.getElementById('rok-'+b).style.display='none';},5000);
+}
+
+// ── CONTACT FORM ──
+function submitContact(){
+  const n=document.getElementById('cf-name').value,e=document.getElementById('cf-email').value;
+  if(!n||!e){alert('Please fill in your name and email.');return;}
+  document.getElementById('cf-ok').style.display='block';
+  ['cf-name','cf-email','cf-phone','cf-msg'].forEach(id=>{document.getElementById(id).value='';});
+  document.getElementById('cf-int').selectedIndex=0;
+  setTimeout(()=>{document.getElementById('cf-ok').style.display='none';},5000);
+}
+</script>
+</body>
+</html>
